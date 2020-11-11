@@ -27,10 +27,10 @@ public class Map extends Parent{
      */
     public Map(int width, int height) {
         cases = new ArrayList<Case>();
-        this.cases.add(new Case(0,0));
+        this.cases.add(new CaseClassic(0,0));
         for(int i=0;i<width;i+=50){
             for(int j=0;j<height;j+=50){
-                this.cases.add(new Case(i,j));
+                this.cases.add(new CaseClassic(i,j));
             }
         }
         

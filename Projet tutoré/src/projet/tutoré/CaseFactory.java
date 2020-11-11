@@ -20,21 +20,21 @@ public class CaseFactory {
     
     /**
      * Crée une nouvelle instance de Case
-     * La fabrique crée une case en fonction du type passé en paramètre
+     * La fabrique crée une case en fonction du caractère passé en paramètre
      * @param typeCase type de la case
      * @return la nouvelle case crée
      */
-    public static Case creerCase(TypeCase typeCase){
+    public static Case creerCase(String typeCase, int x, int y){
         Case c = null;
         switch(typeCase){
-            case Classic:
-               // c = new ActionDemande("MAP");
+            case "C":
+                c = new CaseClassic(x, y);
                 break;
-            case Wall:
-               // c = new ActionDemande("PLAYER");
+            case "W":
+                c = new CaseWall(x, y);
                 break;
-            case Stair:
-                //c = new ActionDemande("WAIT");
+            case "S":
+                c = new CaseStair(x, y);
                 break;
         }
         return c;
