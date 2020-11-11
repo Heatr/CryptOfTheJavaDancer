@@ -36,12 +36,15 @@ import javafx.stage.Stage;
  */
 public class MenuPrincipal extends Parent{
     
+    private MediaPlayer musique;
        
     public MenuPrincipal() {
        
         //Kévin: Ajout de la musique (tourne en boucle)
         Media media = new Media(Paths.get("Musiques/Title_Screen_Theme.mp3").toUri().toString());
         MediaPlayer player = new MediaPlayer(media); 
+        player.setVolume(0.03);
+        this.musique = player;
         player.play();
         
         GridPane gridpane = new GridPane();
@@ -94,6 +97,7 @@ public class MenuPrincipal extends Parent{
    
    public void appuyerNewWindows(){
        //! Kévin: Une nouvelle instance de GameWindow doit être crée avec un Game en paramètre !
+       this.musique.stop();
        Group root = new Group();
        Stage jeu = new Stage();
        jeu.setTitle("Crypt of the NecroDancer");
