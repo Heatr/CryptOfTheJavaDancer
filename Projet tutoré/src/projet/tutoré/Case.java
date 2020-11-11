@@ -9,9 +9,10 @@ package projet.tutoré;
  *Classe représentant une case, elle possède des coordonnées (x et y)
  * @author dm645996
  */
-public class Case {
+public abstract class Case {
     private int x;
     private int y;
+    private GameItem gameItem;
 
     /**
      * Crée une nouvelle instance de Case
@@ -40,7 +41,35 @@ public class Case {
         return y;
     }
 
-   
+    /**
+     * Retourne le GameItem contenu dans la case
+     * @return 
+     */
+    public GameItem getGameItem(){
+        return this.gameItem;
+    }
     
-   
+    /**
+     * Place un GameItem dans la case
+     * @param gi Le GameItem à ajouter
+     */
+    public void addGameItem(GameItem gi){
+        this.gameItem = gi;
+    }
+    
+    /**
+     * Retire le GameItem de la case
+     * @param gi Le GameItem à retirer
+     */
+    public void removeGameItem(GameItem gi){
+        this.gameItem = null;
+    }
+    
+    /**
+     * Renvoie le type de la case
+     * Chaque case renvoie son type en brut (ce n'es pas un attribut)
+     * @return le type de la case
+     */
+    public abstract String getTypeCase();
+    
 }
