@@ -12,7 +12,7 @@ import javafx.scene.image.Image;
  *
  * @author Robin
  */
-public class Sprite extends GameItem{
+public class Sprite{
     
     /**
      * Image
