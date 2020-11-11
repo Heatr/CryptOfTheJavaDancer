@@ -27,9 +27,9 @@ import projet.tutoré.Game;
 public class GameWindow extends Parent {
     
     private Game game;
-    private Image sol = new Image(GameWindow.class.getResourceAsStream("images/sol1.png"));
-    private Image mur = new Image(GameWindow.class.getResourceAsStream("images/TEMP_wall_unbreakable.png"));
-    private Image escalier = new Image(GameWindow.class.getResourceAsStream("images/stairs.png"));
+    private Image sol = new Image(GameWindow.class.getResourceAsStream("sol1.png"));
+    private Image mur = new Image(GameWindow.class.getResourceAsStream("TEMP_wall_unbreakable.png"));
+    private Image escalier = new Image(GameWindow.class.getResourceAsStream("stairs.png"));
     
     //private Rectangle r = new Rectangle();
     
