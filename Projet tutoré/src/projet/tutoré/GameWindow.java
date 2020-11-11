@@ -23,6 +23,8 @@ public class GameWindow extends Parent {
     
     private Game game;
     private Image sol = new Image(GameWindow.class.getResourceAsStream("images/sol1.png"));
+    private Image mur = new Image(GameWindow.class.getResourceAsStream("images/TEMP_wall_unbreakable.png"));
+    private Image escalier = new Image(GameWindow.class.getResourceAsStream("images/stairs.png"));
     
     //private Rectangle r = new Rectangle();
     
@@ -44,16 +46,28 @@ public class GameWindow extends Parent {
         this.getChildren().add(s);
         
         
-        
+        //Kévin: Le sprite change en fonction du type de case
         for(Case c:g.getMap().getCases()){
-            ImageView solView = new ImageView(this.sol);
+            ImageView caseView = null;
             
-            solView.setFitHeight(50);
-            solView.setFitWidth(50);
-            solView.setTranslateX(c.getX());
-            solView.setTranslateY(c.getY());
+            switch(c.getTypeCase()){
+                case "Classic":
+                    caseView = new ImageView(this.sol);
+                    break;
+                case "Wall":
+                    caseView = new ImageView(this.mur);
+                    break;
+                case "Stair":
+                    caseView = new ImageView(this.escalier);
+                    break;
+            }
             
-             s.getChildren().add(solView);
+            caseView.setFitHeight(50);
+            caseView.setFitWidth(50);
+            caseView.setTranslateX(c.getX());
+            caseView.setTranslateY(c.getY());
+            
+            s.getChildren().add(caseView);
         }
         
         
