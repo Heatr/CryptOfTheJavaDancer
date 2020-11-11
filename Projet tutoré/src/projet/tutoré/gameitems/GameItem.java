@@ -3,7 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projet.tutoré;
+package projet.tutoré.gameitems;
+
+import projet.tutoré.Game;
+import projet.tutoré.Sprite;
+import projet.tutoré.map.cases.Coordonnee;
+import projet.tutoré.map.cases.Case;
 
 /**
  *
@@ -24,7 +29,7 @@ abstract public class GameItem {
     public GameItem(Game g,String name, Coordonnee coo){
         this.name = name;
         for (Case c: g.getMap().getCases()){
-            if(c.getCoordonnee().isEqual(coo)){
+            if(c.getCoordonnee().equals(coo)){
                 c.addGameItem(this);
             }
         }

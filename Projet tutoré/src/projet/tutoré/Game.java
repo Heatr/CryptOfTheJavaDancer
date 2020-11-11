@@ -5,6 +5,9 @@
  */
 package projet.tutoré;
 
+import projet.tutoré.gameitems.player.Player;
+import projet.tutoré.gameitems.GameItem;
+import projet.tutoré.map.Map;
 import java.util.ArrayList;
 
 /**

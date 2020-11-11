@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projet.tutoré;
+package projet.tutoré.map.cases;
 
 /**
  *Représente les coordonnées d'une case (x et y)
@@ -40,17 +40,37 @@ public class Coordonnee {
         return this.y;
     }
     
-    /**
-     * Vérifie que deux coordonnées sont égales
-     * Compare les valeurs de x et y des deux coordonnées
-     * @param c les coordonnées passées en paramètre
-     * @return vrai ou faux
-     */
-    public boolean isEqual(Coordonnee c){
-        boolean res = false;
-        if((this.x == c.getX()) && (this.y == c.getY())){
-            res = true;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
         }
-        return res;
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Coordonnee other = (Coordonnee) obj;
+        if (this.x != other.y) {
+            return false;
+        }
+        if (this.x != other.y) {
+            return false;
+        }
+        return true;
+    }
+    
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 89 * hash + this.x;
+        hash = 89 * hash + this.y;
+        return hash;
+    }
+    
+    @Override
+    public String toString(){
+        return this.x + "/" + this.y;
     }
 }

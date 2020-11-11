@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projet.tutoré;
+package projet.tutoré.IHM;
 
+import projet.tutoré.map.cases.Case;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.image.Image;
@@ -17,6 +18,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import projet.tutoré.Game;
 
 /**
  *Fenêtre sur laquelle sera affiché le jeu
@@ -67,8 +69,8 @@ public class GameWindow extends Parent {
             
             caseView.setFitHeight(50);
             caseView.setFitWidth(50);
-            caseView.setTranslateX(c.getCoordonnee().getX());
-            caseView.setTranslateY(c.getCoordonnee().getY());
+            caseView.setTranslateX(c.getCoordonnee().getX()*50);
+            caseView.setTranslateY(c.getCoordonnee().getY()*50);
             
             s.getChildren().add(caseView);
         }

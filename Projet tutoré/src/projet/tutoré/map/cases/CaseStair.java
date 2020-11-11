@@ -3,27 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projet.tutoré;
+package projet.tutoré.map.cases;
+
+import projet.tutoré.map.cases.Case;
 
 /**
- *Représente une case classique
+ *Représente une case où se trouve les escaliers
  * @author kevin
  */
-public class CaseClassic extends Case {
+public class CaseStair extends Case {
     
-    /**
-     * Crée une nouvelle instance de CaseClassic
-     * Appelle le constructeur de Case pour créer la CaseClassic
+     /**
+     * Crée une nouvelle instance de CasStair
+     * Appelle le constructeur de Case pour créer la CaseStair
      * @param x coordonnée sur l'axe x
      * @param y coordonnée sur l'axe y
      */
-    public CaseClassic(Coordonnee c){
+    public CaseStair(Coordonnee c){
         super(c);
     }
 
+    
     @Override
     public String getTypeCase() {
-        return "Classic";
+        return "Stair";
     }
     
 }

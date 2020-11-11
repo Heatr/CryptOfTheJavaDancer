@@ -5,6 +5,7 @@
  */
 package projet.tutoré;
 
+import projet.tutoré.IHM.MenuPrincipal;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
