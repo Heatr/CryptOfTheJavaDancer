@@ -10,8 +10,7 @@ package projet.tutoré;
  * @author dm645996
  */
 public abstract class Case {
-    private int x;
-    private int y;
+    private Coordonnee coordonnee;
     private GameItem gameItem;
 
     /**
@@ -20,25 +19,16 @@ public abstract class Case {
      * @param x coordonnée sur l'axe x
      * @param y coordonnée sur l'axe y
      */
-    public Case(int x, int y) {
-        this.x = x;
-        this.y = y;
+    public Case(Coordonnee c) {
+        coordonnee = c;
     }
 
     /**
-     * Retourne la valeur de x
-     * @return la coordonnée sur l'axe x
+     * Retourne les coordonnees de la case
+     * @return l'instance de Coordonnee de la Case
      */
-    public int getX() {
-        return x;
-    }
-
-    /**
-     * Retourne la  valeur de y
-     * @return la coordonnée sur l'axe y
-     */
-    public int getY() {
-        return y;
+    public Coordonnee getCoordonnee(){
+        return this.coordonnee;
     }
 
     /**

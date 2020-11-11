@@ -10,20 +10,24 @@ package projet.tutoré;
  * @author Kevin Deschaud, Robin Petiot
  */
 abstract public class GameItem {
-    /**
-     * Image du GameItem
-     */
+
+    private String name;
     private Sprite sprite;
     
     /**
      * Constructeur du GameItem
+     * Crée un GameItem et l'ajoute dans la case coresspondante
      * @param g partie associée
      * @param name nom du sprite
-     * @param x position horizontale
-     * @param y position verticale
+     * @param coo coordonnées de l'item
      */
-    public GameItem(Game g,String name,int x,int y){
-        
+    public GameItem(Game g,String name, Coordonnee coo){
+        this.name = name;
+        for (Case c: g.getMap().getCases()){
+            if(c.getCoordonnee().isEqual(coo)){
+                c.addGameItem(this);
+            }
+        }
     }
     
 }

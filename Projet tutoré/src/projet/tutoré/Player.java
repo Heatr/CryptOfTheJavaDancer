@@ -23,10 +23,9 @@ public class Player extends Entity{
     /**
      * Constructeur de l'instance du Joueur
      */
-    private Player(Game g,int x, int y){
-        super(g,x,y);
-        
-        
+    private Player(Game g, String name, Coordonnee coo){
+        super(g, name, coo);
+        instance = this;
     }
     
     /**

@@ -11,8 +11,8 @@ package projet.tutoré;
  */
 public abstract class Entity extends GameItem{
 
-    public Entity(Game g,int x, int y) {
-        super(g,(double)x,(double)y);
+    public Entity(Game g, String name, Coordonnee coo) {
+        super(g, name, coo);
     }
     
     

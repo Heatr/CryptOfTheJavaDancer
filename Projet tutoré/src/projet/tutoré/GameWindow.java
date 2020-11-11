@@ -67,8 +67,8 @@ public class GameWindow extends Parent {
             
             caseView.setFitHeight(50);
             caseView.setFitWidth(50);
-            caseView.setTranslateX(c.getX());
-            caseView.setTranslateY(c.getY());
+            caseView.setTranslateX(c.getCoordonnee().getX());
+            caseView.setTranslateY(c.getCoordonnee().getY());
             
             s.getChildren().add(caseView);
         }

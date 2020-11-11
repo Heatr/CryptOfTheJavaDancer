@@ -17,8 +17,8 @@ public class CaseWall extends Case {
      * @param x coordonnée sur l'axe x
      * @param y coordonnée sur l'axe y
      */
-    public CaseWall(int x, int y){
-        super(x, y);
+    public CaseWall(Coordonnee c){
+        super(c);
     }
 
     @Override

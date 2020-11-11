@@ -7,6 +7,7 @@ package projet.tutoré;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import javafx.scene.Parent;
 
 
@@ -17,7 +18,7 @@ import javafx.scene.Parent;
  */
 public class Map extends Parent{
 
-    private ArrayList<Case> cases;
+    private HashMap<Coordonnee, Case> cases;
     
     /**
      * Crée une nouvelle instance de Map
@@ -26,11 +27,13 @@ public class Map extends Parent{
      * @param height hauteur de la carte
      */
     public Map(int width, int height) {
-        cases = new ArrayList<Case>();
-        this.cases.add(new CaseClassic(0,0));
+        cases = new HashMap<Coordonnee, Case>();
+        Coordonnee temp = new Coordonnee(0, 0);
+        this.cases.put(temp, new CaseClassic(temp));
         for(int i=0;i<width;i+=50){
             for(int j=0;j<height;j+=50){
-                this.cases.add(new CaseClassic(i,j));
+                temp = new Coordonnee(i, j);
+                this.cases.put(temp, new CaseClassic(temp));
             }
         }
         
@@ -41,11 +44,16 @@ public class Map extends Parent{
      * @return la listes des Cases qui compose la Carte
      */
     public Collection<Case> getCases(){
-        return this.cases;
+        return this.cases.values();
     }
     
-    public Case getCase() {
-        return null;
+    /**
+     * Retourne la case en fonction des coordonnées
+     * @param c coordonnées de la case recherchée
+     * @return la case recherchée
+     */
+    public Case getCase(Coordonnee c) {
+        return cases.get(c);
     }
     
     public void init(){

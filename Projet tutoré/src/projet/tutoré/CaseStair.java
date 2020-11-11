@@ -17,8 +17,8 @@ public class CaseStair extends Case {
      * @param x coordonnée sur l'axe x
      * @param y coordonnée sur l'axe y
      */
-    public CaseStair(int x, int y){
-        super(x, y);
+    public CaseStair(Coordonnee c){
+        super(c);
     }
 
     
