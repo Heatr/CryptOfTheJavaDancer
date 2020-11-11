@@ -7,6 +7,7 @@ package projet.tutoré;
 
 
 
+import java.nio.file.Paths;
 import javafx.application.Platform;
 import static javafx.application.Platform.exit;
 import javafx.event.EventHandler;
@@ -21,6 +22,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.TilePane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
@@ -35,6 +38,12 @@ public class MenuPrincipal extends Parent{
     
        
     public MenuPrincipal() {
+       
+        //Kévin: Ajout de la musique (tourne en boucle)
+        Media media = new Media(Paths.get("Musiques/Title_Screen_Theme.mp3").toUri().toString());
+        MediaPlayer player = new MediaPlayer(media); 
+        player.play();
+        
         GridPane gridpane = new GridPane();
         ImageView mainmenu = new ImageView(new
         Image(MenuPrincipal.class.getResourceAsStream("mainmenu.jpg")) {});
