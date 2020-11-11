@@ -7,17 +7,26 @@ package projet.tutoré;
 
 import projet.tutoré.TypeCase;
 /**
- *
+ *Classe gère la fabrication des classes
  * @author dm645996
  */
 public class CaseFactory {
 
+    /**
+     * Crée une nouvelle instance de CaseFactory
+     */
     public CaseFactory() {
     }
     
-    public static Case creerCase(TypeCase cases){
+    /**
+     * Crée une nouvelle instance de Case
+     * La fabrique crée une case en fonction du type passé en paramètre
+     * @param typeCase type de la case
+     * @return la nouvelle case crée
+     */
+    public static Case creerCase(TypeCase typeCase){
         Case c = null;
-        switch(cases){
+        switch(typeCase){
             case Classic:
                // c = new ActionDemande("MAP");
                 break;

@@ -37,7 +37,7 @@ public class MenuPrincipal extends Parent{
     public MenuPrincipal() {
         GridPane gridpane = new GridPane();
         ImageView mainmenu = new ImageView(new
-        Image(MenuPrincipal.class.getResourceAsStream("mainmenu.png")) {});
+        Image(MenuPrincipal.class.getResourceAsStream("mainmenu.jpg")) {});
         mainmenu.setFitHeight(1095);
         mainmenu.setPreserveRatio(true);
         gridpane.add(mainmenu, 1, 0);
@@ -84,10 +84,17 @@ public class MenuPrincipal extends Parent{
    }
    
    public void appuyerNewWindows(){
+       //! Kévin: Une nouvelle instance de GameWindow doit être crée avec un Game en paramètre !
        Group root = new Group();
        Stage jeu = new Stage();
        jeu.setTitle("Crypt of the NecroDancer");
-       jeu.setScene(new Scene(root,1920,1020));
+       GameWindow gw = new GameWindow(new Game(1920,1020));
+       jeu.setScene(new Scene(root,1920,1020, Color.DARKGRAY));
+       root.getChildren().add(gw);
        jeu.show();
+       
+       //Kévin: Le menu principal se ferme au lancement d'une nouvelle partie
+       Stage fermeture = (Stage) nouvellePartie.getScene().getWindow();
+       fermeture.close();
    }
 }
