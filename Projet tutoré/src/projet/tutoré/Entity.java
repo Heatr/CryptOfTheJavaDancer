@@ -9,10 +9,10 @@ package projet.tutoré;
  *
  * @author dm645996
  */
-public abstract class Entity {
+public abstract class Entity extends GameItem{
 
-    public Entity() {
-        
+    public Entity(Game g,int x, int y) {
+        super(g,(double)x,(double)y);
     }
     
     

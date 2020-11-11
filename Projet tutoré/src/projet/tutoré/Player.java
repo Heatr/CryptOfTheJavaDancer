@@ -5,10 +5,57 @@
  */
 package projet.tutoré;
 
+import javafx.scene.input.KeyEvent;
+
 /**
  *
- * @author dm645996
+ * @author Dorian Morin & Robin Petiot
  */
 public class Player extends Entity{
+    
+    
+    /**
+     * Instance unique du joueur
+     */
+    private static Player instance = null;
+    
+    
+    /**
+     * Constructeur de l'instance du Joueur
+     */
+    private Player(Game g,int x, int y){
+        super(g,x,y);
+        
+        
+    }
+    
+    /**
+     * Récupère l'appuie sur une touche du joueur
+     * @param e événement correspondant
+     */
+    public void KeyPressed(KeyEvent e){
+        
+    }
+    /**
+     * Récupère le relachement d'une touche appuyée par le joueur
+     * @param e Evenement correspondant
+     */
+    public void KeyReleased(KeyEvent e){
+        
+    }
+    
+    /**
+     * Méthode permettant de renvoyer une instance de Player
+     * @return Instance unique du joueur
+     */
+    public final static Player getInstance(){
+        if(Player.instance == null){
+            
+        }
+        return instance;
+    }
+    
+    
+    
     
 }
