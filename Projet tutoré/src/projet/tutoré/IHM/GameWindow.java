@@ -30,6 +30,7 @@ public class GameWindow extends Parent {
     private Image sol = new Image(GameWindow.class.getResourceAsStream("sol1.png"));
     private Image mur = new Image(GameWindow.class.getResourceAsStream("TEMP_wall_unbreakable.png"));
     private Image escalier = new Image(GameWindow.class.getResourceAsStream("stairs.png"));
+    private Image joueur = new Image(GameWindow.class.getResourceAsStream("cadence.png"));
     
     //private Rectangle r = new Rectangle();
     
@@ -74,10 +75,15 @@ public class GameWindow extends Parent {
             
             s.getChildren().add(caseView);
         }
+              
+        ImageView Joueur = null;
+        Joueur = new ImageView(this.joueur);
+        Joueur.setFitHeight(50);
+        Joueur.setFitWidth(40);
+        Joueur.setTranslateX(0);
+        Joueur.setTranslateY(0);
         
         
-        
-        
-    }
-    
+        s.getChildren().add(Joueur);    
+    }   
 }
