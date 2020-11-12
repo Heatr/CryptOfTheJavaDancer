@@ -51,8 +51,9 @@ public class Player extends Entity{
      * Méthode permettant de renvoyer une instance de Player
      * @return Instance unique du joueur
      */
-    public final static Player getInstance(Game g){
+    public final static Player getInstance(Game g, Coordonnee coo){
         if(Player.instance == null){
+            instance = new Player(g, "player", coo);
         }
         return instance;
     }

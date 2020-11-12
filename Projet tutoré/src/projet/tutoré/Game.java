@@ -9,6 +9,7 @@ import projet.tutoré.gameitems.player.Player;
 import projet.tutoré.gameitems.GameItem;
 import projet.tutoré.map.Map;
 import java.util.ArrayList;
+import projet.tutoré.map.cases.Coordonnee;
 
 /**
  *Classe qui représente le jeu et qui gère la partie
@@ -31,6 +32,7 @@ public class Game {
     public Game(int width, int height){
         map = new Map(width, height);
         running = true;
+        player = Player.getInstance(this, new Coordonnee(2, 2));
         gameItems = new ArrayList<GameItem>();
     }
     
