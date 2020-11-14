@@ -28,9 +28,6 @@ import projet.tutoré.images.Sprite;
 public class GameWindow extends Parent {
     
     private Game game;
-    private Image sol = new Image(GameWindow.class.getResourceAsStream("sol1.png"));
-    private Image mur = new Image(GameWindow.class.getResourceAsStream("TEMP_wall_unbreakable.png"));
-    private Image escalier = new Image(GameWindow.class.getResourceAsStream("stairs.png"));
     
     //private Rectangle r = new Rectangle();
     
@@ -51,37 +48,23 @@ public class GameWindow extends Parent {
         
         this.getChildren().add(s);
         
-        
-        //Kévin: Le sprite change en fonction du type de case
+
         for(Case c:g.getMap().getCases()){
-            ImageView caseView = null;
-            
-            switch(c.getTypeCase()){
-                case "Classic":
-                    caseView = new ImageView(this.sol);
-                    break;
-                case "Wall":
-                    caseView = new ImageView(this.mur);
-                    break;
-                case "Stair":
-                    caseView = new ImageView(this.escalier);
-                    break;
-            }
-            
-            caseView.setFitHeight(50);
+            ImageView caseView = new ImageView(c.getSprite().getImage());
             caseView.setFitWidth(50);
+            caseView.setFitHeight(50);
             caseView.setTranslateX(c.getCoordonnee().getX()*50);
             caseView.setTranslateY(c.getCoordonnee().getY()*50);
-            
             s.getChildren().add(caseView);
-        }
-        
-        //Kévin: On appelle Sprite et on récupère le sprite voulu
-        ImageView joueur = Sprite.getInstance("cadence.png", 40, 50).getImageView();
-        joueur.setTranslateX(0);
-        joueur.setTranslateY(0);
-        
-        
-        s.getChildren().add(joueur);    
+            
+            if(c.getGameItem() != null){
+                ImageView caseContentView = new ImageView(c.getGameItem().getSprite().getImage());
+                caseContentView.setFitWidth(40);
+                caseContentView.setFitHeight(50);
+                caseContentView.setTranslateX(c.getCoordonnee().getX()*50);
+                caseContentView.setTranslateY(c.getCoordonnee().getY()*50);
+                s.getChildren().add(caseContentView);
+            }
+        }  
     }   
 }

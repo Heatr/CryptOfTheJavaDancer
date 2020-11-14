@@ -5,6 +5,7 @@
  */
 package projet.tutoré.map.cases;
 
+import projet.tutoré.images.Sprite;
 import projet.tutoré.map.cases.Case;
 
 /**
@@ -21,6 +22,7 @@ public class CaseClassic extends Case {
      */
     public CaseClassic(Coordonnee c){
         super(c);
+        this.sprite = Sprite.getInstance("sol1.png");
     }
 
     @Override

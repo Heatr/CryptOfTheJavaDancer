@@ -15,8 +15,8 @@ import projet.tutoré.map.cases.Coordonnee;
  */
 public abstract class Entity extends GameItem{
 
-    public Entity(Game g, String name, Coordonnee coo) {
-        super(g, name, coo);
+    public Entity(Game g, String name) {
+        super(g, name);
     }
     
     

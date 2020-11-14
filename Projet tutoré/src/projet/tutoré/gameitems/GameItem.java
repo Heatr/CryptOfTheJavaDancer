@@ -17,22 +17,24 @@ import projet.tutoré.map.cases.Case;
 abstract public class GameItem {
 
     private String name;
-    private Sprite sprite;
+    protected Sprite sprite;
     
     /**
      * Constructeur du GameItem
      * Crée un GameItem et l'ajoute dans la case coresspondante
      * @param g partie associée
      * @param name nom du sprite
-     * @param coo coordonnées de l'item
      */
-    public GameItem(Game g,String name, Coordonnee coo){
+    public GameItem(Game g,String name){
         this.name = name;
-        for (Case c: g.getMap().getCases()){
-            if(c.getCoordonnee().equals(coo)){
-                c.addGameItem(this);
-            }
-        }
+    }
+    
+    /**
+     * Retourne le sprite du GameItem
+     * @return sprite du GameItem
+     */
+    public Sprite getSprite(){
+        return this.sprite;
     }
     
 }

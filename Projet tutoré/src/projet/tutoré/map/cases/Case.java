@@ -6,6 +6,7 @@
 package projet.tutoré.map.cases;
 
 import projet.tutoré.gameitems.GameItem;
+import projet.tutoré.images.Sprite;
 
 /**
  *Classe représentant une case, elle possède des coordonnées (x et y)
@@ -14,6 +15,7 @@ import projet.tutoré.gameitems.GameItem;
 public abstract class Case {
     private Coordonnee coordonnee;
     private GameItem gameItem;
+    protected Sprite sprite;
 
     /**
      * Crée une nouvelle instance de Case
@@ -64,4 +66,11 @@ public abstract class Case {
      */
     public abstract String getTypeCase();
     
+    /***
+     * Renvoie le sprite de la Case
+     * @return sprite de la Case
+     */
+    public Sprite getSprite(){
+        return this.sprite;
+    }
 }

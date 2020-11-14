@@ -17,22 +17,15 @@ import projet.tutoré.IHM.GameWindow;
 public class Sprite {
     
     private Image image;
-    private ImageView imageView;
     private static HashMap<String, Sprite> instances = new HashMap<String, Sprite>();
     
     /**
      * Crée une nouvelle instance de Sprite
-     * Crée l'ImageView du Sprite à partir d'une Image crée à partir du chemin, puis
-     * redimensionne l'ImageView
+     * Crée l'Image du Sprite à partir de la clé
      * @param path chemin de l'image
-     * @param width largeur de l'ImageView
-     * @param height hauteur de l'ImageView
      */
-    private Sprite(String path, int width, int height){
+    private Sprite(String path){
         image = new Image(Sprite.class.getResourceAsStream(path));
-        imageView = new ImageView(image);
-        imageView.setFitWidth(width);
-        imageView.setFitHeight(height);
     }
     
     /**
@@ -40,22 +33,20 @@ public class Sprite {
      * Recherche l'instance correspondant à la clé passée en paramètre, sinon on
      * en crée une à partir de cette clé
      * @param key clé/nom du sprite
-     * @param width largeur de l'ImageView du sprite
-     * @param height hauteur de l'ImageView du sprite
      * @return le sprite recherché
      */
-    public static Sprite getInstance(String key, int width, int height){
+    public static Sprite getInstance(String key){
         if(!instances.containsKey(key)){
-            instances.put(key, new Sprite(key, width, height));
+            instances.put(key, new Sprite(key));
         }
         return instances.get(key);
     }
     
     /**
-     * Retourne l'ImageView du sprite
-     * @return l'ImageView du sprite
+     * Retourne l'Image du sprite
+     * @return l'Image du sprite
      */
-    public ImageView getImageView(){
-        return this.imageView;
+    public Image getImage(){
+        return this.image;
     }
 }

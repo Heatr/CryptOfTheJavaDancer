@@ -52,10 +52,10 @@ public class Coordonnee {
             return false;
         }
         final Coordonnee other = (Coordonnee) obj;
-        if (this.x != other.y) {
+        if (this.x != other.x) {
             return false;
         }
-        if (this.x != other.y) {
+        if (this.y != other.y) {
             return false;
         }
         return true;
