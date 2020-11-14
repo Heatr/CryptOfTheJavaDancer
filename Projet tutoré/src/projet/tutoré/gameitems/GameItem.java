@@ -6,7 +6,7 @@
 package projet.tutoré.gameitems;
 
 import projet.tutoré.Game;
-import projet.tutoré.Sprite;
+import projet.tutoré.images.Sprite;
 import projet.tutoré.map.cases.Coordonnee;
 import projet.tutoré.map.cases.Case;
 
