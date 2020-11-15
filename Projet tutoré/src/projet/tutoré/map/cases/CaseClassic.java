@@ -26,8 +26,8 @@ public class CaseClassic extends Case {
     }
 
     @Override
-    public String getTypeCase() {
-        return "Classic";
+    public TypeCase getTypeCase() {
+        return TypeCase.Classic;
     }
     
 }

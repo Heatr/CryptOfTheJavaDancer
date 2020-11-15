@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import javafx.scene.Parent;
+import projet.tutoré.map.cases.CaseStair;
+import projet.tutoré.map.cases.CaseWall;
 
 
 
@@ -32,11 +34,17 @@ public class Map extends Parent{
     public Map(int width, int height) {
         cases = new HashMap<Coordonnee, Case>();
         Coordonnee temp = new Coordonnee(0, 0);
-        this.cases.put(temp, new CaseClassic(temp));
-        for(int i=0;i<width;i++){
-            for(int j=0;j<height;j++){
+        //this.cases.put(temp, new CaseClassic(temp));
+        for(int i=1;i<width-1;i++){
+            for(int j=1;j<height-1;j++){
                 temp = new Coordonnee(i, j);
-                this.cases.put(temp, new CaseClassic(temp));
+                if (j==1){
+                    //On regarde si on parle de la ligne du haut
+                    this.cases.put(temp, new CaseWall(temp));
+                }else{
+                    this.cases.put(temp, new CaseClassic(temp));
+                }
+                
             }
         }
         

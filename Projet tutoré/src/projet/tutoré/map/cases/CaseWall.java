@@ -22,12 +22,12 @@ public class CaseWall extends Case {
      */
     public CaseWall(Coordonnee c){
         super(c);
-        this.sprite = Sprite.getInstance("TEMP_wall_unbreakable.png");
+        this.sprite = Sprite.getInstance("murhaut1.png");
     }
 
     @Override
-    public String getTypeCase() {
-        return "Wall";
+    public TypeCase getTypeCase() {
+        return TypeCase.Wall;
     }
     
 }

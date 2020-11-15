@@ -27,8 +27,8 @@ public class CaseStair extends Case {
 
     
     @Override
-    public String getTypeCase() {
-        return "Stair";
+    public TypeCase getTypeCase() {
+        return TypeCase.Stair;
     }
     
 }

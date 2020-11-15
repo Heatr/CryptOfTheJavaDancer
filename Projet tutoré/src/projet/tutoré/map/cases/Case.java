@@ -64,7 +64,7 @@ public abstract class Case {
      * Chaque case renvoie son type en brut (ce n'es pas un attribut)
      * @return le type de la case
      */
-    public abstract String getTypeCase();
+    public abstract TypeCase getTypeCase();
     
     /***
      * Renvoie le sprite de la Case
