@@ -26,17 +26,25 @@ public class Player extends Entity{
     
     private Coordonnee coordonnee;
 
+    /**
+     * Retourne les Coordonnees du joueur
+     * @return les Coordonnees du joueur
+     */
     public Coordonnee getCoordonnee(){
         return coordonnee;
     }
 
     /**
-     * Constructeur de l'instance du Joueur
+     * Modifie les Coordonnees du joueur
+     * @param coordonnee les nouvelles coordonnees du joueur
      */
     public void setCoordonnee(Coordonnee coordonnee) {
         this.coordonnee = coordonnee;
     }
 
+    /**
+     * Constructeur de l'instance du Joueur
+     */
     private Player(Game g, String name, Coordonnee coo) {
         super(g, name);
         this.sprite = Sprite.getInstance("cadence.png");

@@ -20,12 +20,17 @@ public class Game {
     private Map map;
     private Player player;
     private ArrayList<GameItem> gameItems;
+    private boolean running;
+ 
 
+    /**
+     * Retourne le joueur
+     * @return le joueur
+     */
     public Player getPlayer() {
         return player;
     }
-    private boolean running;
- 
+    
     /**
      * Crée une nouvelle instance de Game
      * Crée une nouvelle carte, un joueur, initialise la liste de GameItems

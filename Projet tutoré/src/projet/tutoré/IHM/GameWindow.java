@@ -94,7 +94,8 @@ public class GameWindow extends Parent {
     
     /**
      * Met à jour l'écran de jeu
-     * @param s 
+     * Affiche les cases et leur contenu en prenant en compte la notion de profondeur
+     * @param s StackPane de l'écran
      */
     public void update(StackPane s){
         s.getChildren().clear();
@@ -123,6 +124,16 @@ public class GameWindow extends Parent {
         }
     }
     
+    /**
+     * Affiche un sprite
+     * Configure l'ImageView et l'ajoute au StackPane
+     * @param iv ImageView à ajouter
+     * @param s StackPane
+     * @param width largeur de l'ImageView
+     * @param height hauteur de l'ImageView
+     * @param x coordonnée sur l'axe x
+     * @param y coordonnée sur l'axe y
+     */
     public void configAndDisplay(ImageView iv, StackPane s, int width, int height, int x, int y){
         iv.setFitWidth(width);
         iv.setFitHeight(height);

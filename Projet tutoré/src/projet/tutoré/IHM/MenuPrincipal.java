@@ -91,13 +91,19 @@ public class MenuPrincipal extends Parent{
    Button nouvellePartie = new Button("Nouvelle Partie");
    //Button options = new Button("Options");
    Button quitter = new Button("Quitter");
-    
+   
+   /**
+    * Ferme le jeu
+    */
    public void appuyerQuitter(){
       quitter.setOnAction(e -> Platform.exit());
    }
    
+   /**
+    * Lance une nouvelle partie
+    * Crée un nouveau Game et lance la fenêtre de jeu
+    */
    public void appuyerNewWindows(){
-       //! Kévin: Une nouvelle instance de GameWindow doit être crée avec un Game en paramètre !
        this.musique.stop();
        Group root = new Group();
        Stage jeu = new Stage();
@@ -109,7 +115,6 @@ public class MenuPrincipal extends Parent{
        
        gw.requestFocus();
        
-       //Kévin: Le menu principal se ferme au lancement d'une nouvelle partie
        Stage fermeture = (Stage) nouvellePartie.getScene().getWindow();
        fermeture.close();
    }

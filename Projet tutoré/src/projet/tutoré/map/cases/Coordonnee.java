@@ -74,18 +74,34 @@ public class Coordonnee {
         return this.x + "/" + this.y;
     }
     
+    /**
+     * Retourne les Coordonnees de la case au-dessus de la case courante
+     * @return Coordonnees de la case du haut
+     */
     public Coordonnee getCoordonneeHaut(){
         return new Coordonnee(this.x, this.y - 1);
     }
     
+    /**
+     * Retourne les Coordonnees de la case sous la case courante
+     * @return Coordonnees de la case du bas
+     */
     public Coordonnee getCoordonneeBas(){
         return new Coordonnee(this.x, this.y + 1);
     }
     
+    /**
+     * Retourne les Coordonnees de la case à droite de la case courante
+     * @return Coordonnees de la case de droite
+     */
     public Coordonnee getCoordonneeDroite(){
         return new Coordonnee(this.x + 1, this.y);
     }
     
+    /**
+     * Retourne les Coordonnees de la case à gauche de la case courante
+     * @return Coordonnees de la case de gauche
+     */
     public Coordonnee getCoordonneeGauche(){
         return new Coordonnee(this.x - 1, this.y);
     }

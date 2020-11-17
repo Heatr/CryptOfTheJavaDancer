@@ -75,6 +75,10 @@ public abstract class Case {
         return this.sprite;
     }
     
+    /**
+     * Renvoie le sprite alternatif de la case
+     * @return sprite alternatif de la Case
+     */
     public Sprite getSpriteAlt(){
         return this.spriteAlt;
     }
