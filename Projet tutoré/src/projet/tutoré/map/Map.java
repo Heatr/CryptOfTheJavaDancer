@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import javafx.scene.Parent;
+import projet.tutoré.map.cases.CaseFactory;
 import projet.tutoré.map.cases.CaseStair;
 import projet.tutoré.map.cases.CaseWall;
 
@@ -31,7 +32,7 @@ public class Map extends Parent{
      * @param width largeur de la carte
      * @param height hauteur de la carte
      */
-    public Map(int width, int height) {
+    /**public Map(int width, int height) {
         cases = new HashMap<Coordonnee, Case>();
         Coordonnee temp = new Coordonnee(0, 0);
         //this.cases.put(temp, new CaseClassic(temp));
@@ -44,10 +45,43 @@ public class Map extends Parent{
                 }else{
                     this.cases.put(temp, new CaseClassic(temp));
                 }
-                
             }
-        }
+        }  
+    }*/
+    
+    public Map(int width, int height){
+        String s = "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+                 + "WWWCCCCCCCCWWWWWWWWWWCCCCCCCCCCCCCCWWWW"
+                 + "WWWCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCWWWW"
+                 + "WWWCCCCCCCCWWWWWWWWWWCCCCCCCCCCCCCCWWWW"
+                 + "WWWCCCCCCCCWWWWWWWWWWCCCCCCCCCCCCCCWWWW"
+                 + "WWWWWWCWWWWWWWWWWWWWWCCCCCCCCCCCCCCWWWW"
+                 + "WWWWWWCWWWWWWWWWWWWWWCCCCCCCCCCCCCCWWWW"
+                 + "WWWWWWCWWWWWWWWWWWWWWWWWCWWWWWWWCWWWWWW"
+                 + "WWWWWWCWWWWWWWWWWWWWWWWWCWWWWWWWCWWWWWW"
+                 + "WWWWWWCWWWWWWWWWWWWWWWWWCWWWWWWWCWWWWWW"
+                 + "WWWWWWCWWWWWWWWWWWWWWCCCCCCCWWWWCWWWWWW"
+                 + "WCCCCCCCCCCCCCWWWWWWWCCCCCCCWWWWCWWWWWW"
+                 + "WCCCCCCCCCCCCCWWWWWWWCCCCCCCWWWWCWWWWWW"
+                 + "WCCCCCCCCCCCCCCCCCCCCCCCCCCCWWWWCWWWWWW"
+                 + "WCCCCCCCCCCCCCWWWWWWWCCCCCCCWWWWCWWWWWW"
+                 + "WCCCCCCCCCCCCCWWWWWWWWWWWWWWWWWWCWWWWWW"
+                 + "WCCCCCCCCCCCCCWWWWWWWWWWWWWWWWWWCWWWWWW"
+                 + "WCCCCCCCCCCCCCWWWWWWWWWWWWWCCCCCCCCCWWW"
+                 + "WCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCSCCCCWWW"
+                 + "WCCCCCCCCCCCCCWWWWWWWWWWWWWCCCCCCCCCWWW"
+                 + "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW";
         
+        int compt = 0;
+        cases = new HashMap<Coordonnee, Case>();
+        Coordonnee temp = new Coordonnee(0, 0);
+        for(int i=0;i<width;i++){
+            for(int j=0;j<height;j++){
+                temp = new Coordonnee(i, j);
+                cases.put(temp, CaseFactory.creerCase(s.charAt(compt), temp));
+                compt += 1;
+            }
+        }  
     }
     
     /**

@@ -16,6 +16,8 @@ public abstract class Case {
     private Coordonnee coordonnee;
     private GameItem gameItem;
     protected Sprite sprite;
+    protected Sprite spriteUp;
+    protected Sprite spriteDown;
 
     /**
      * Crée une nouvelle instance de Case
@@ -72,5 +74,13 @@ public abstract class Case {
      */
     public Sprite getSprite(){
         return this.sprite;
+    }
+    
+    public Sprite getSpriteUp(){
+        return this.spriteUp;
+    }
+    
+    public Sprite getSpriteDown(){
+        return this.spriteDown;
     }
 }

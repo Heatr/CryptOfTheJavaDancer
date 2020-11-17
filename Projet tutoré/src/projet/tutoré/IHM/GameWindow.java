@@ -21,6 +21,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import projet.tutoré.Game;
 import projet.tutoré.images.Sprite;
+import projet.tutoré.map.cases.Coordonnee;
 import projet.tutoré.map.cases.TypeCase;
 
 /**
@@ -45,26 +46,31 @@ public class GameWindow extends Parent {
 //        r.setFill(Color.BLUE);
 //        r.setTranslateX(150);
 //        r.setTranslateY(500);
+
         
         StackPane s = new StackPane();
-        
         this.getChildren().add(s);
 
         for(Case c:g.getMap().getCases()){
             ImageView caseView = new ImageView(c.getSprite().getImage());
-            if(c.getTypeCase() == TypeCase.Wall && c.getCoordonnee().getY() == 1){
-                caseView.setFitWidth(50);
-                caseView.setFitHeight(75);
-                caseView.setTranslateX(c.getCoordonnee().getX()*50);
-                caseView.setTranslateY(c.getCoordonnee().getY()*75-25);
-            }else{
-                caseView.setFitWidth(50);
-                caseView.setFitHeight(50);
-                caseView.setTranslateX(c.getCoordonnee().getX()*50);
-                caseView.setTranslateY(c.getCoordonnee().getY()*50);
-            }
+            caseView.setFitWidth(50);
+            caseView.setFitHeight(50);
+            caseView.setTranslateX(c.getCoordonnee().getX()*50);
+            caseView.setTranslateY(c.getCoordonnee().getY()*50);
 
             s.getChildren().add(caseView);
+            
+            if(c.getTypeCase() == TypeCase.Classic && g.getMap().getCase(new Coordonnee(c.getCoordonnee().getX(), c.getCoordonnee().getY()-1)) != null){
+                if(g.getMap().getCase(new Coordonnee(c.getCoordonnee().getX(), c.getCoordonnee().getY()-1)).getTypeCase() == TypeCase.Wall){
+                    caseView = new ImageView(c.getSpriteDown().getImage());
+                    caseView.setFitWidth(50);
+                    caseView.setFitHeight(50);
+                    caseView.setTranslateX(c.getCoordonnee().getX()*50);
+                    caseView.setTranslateY(c.getCoordonnee().getY()*50);
+                    
+                    s.getChildren().add(caseView);
+                }
+            }
             
             if(c.getGameItem() != null){
                 ImageView caseContentView = new ImageView(c.getGameItem().getSprite().getImage());

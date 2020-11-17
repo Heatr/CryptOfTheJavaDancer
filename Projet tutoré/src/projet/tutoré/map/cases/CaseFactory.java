@@ -25,16 +25,16 @@ public class CaseFactory {
      * @param typeCase type de la case
      * @return la nouvelle case crée
      */
-    public static Case creerCase(String typeCase, Coordonnee c){
+    public static Case creerCase(char typeCase, Coordonnee c){
         Case res = null;
         switch(typeCase){
-            case "C":
+            case 'C':
                 res = new CaseClassic(c);
                 break;
-            case "W":
+            case 'W':
                 res = new CaseWall(c);
                 break;
-            case "S":
+            case 'S':
                 res = new CaseStair(c);
                 break;
         }

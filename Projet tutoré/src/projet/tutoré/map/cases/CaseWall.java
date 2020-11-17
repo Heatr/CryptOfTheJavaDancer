@@ -22,7 +22,7 @@ public class CaseWall extends Case {
      */
     public CaseWall(Coordonnee c){
         super(c);
-        this.sprite = Sprite.getInstance("murhaut1.png");
+        this.sprite = Sprite.getInstance("wall_dirt1_up.png");
     }
 
     @Override

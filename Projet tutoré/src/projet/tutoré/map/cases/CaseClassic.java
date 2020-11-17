@@ -14,6 +14,7 @@ import projet.tutoré.map.cases.Case;
  */
 public class CaseClassic extends Case {
     
+    
     /**
      * Crée une nouvelle instance de CaseClassic
      * Appelle le constructeur de Case pour créer la CaseClassic
@@ -23,6 +24,7 @@ public class CaseClassic extends Case {
     public CaseClassic(Coordonnee c){
         super(c);
         this.sprite = Sprite.getInstance("sol1.png");
+        this.spriteDown = Sprite.getInstance("wall_dirt1_down.png");
     }
 
     @Override
