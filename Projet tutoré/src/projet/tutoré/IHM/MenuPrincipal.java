@@ -107,6 +107,8 @@ public class MenuPrincipal extends Parent{
        root.getChildren().add(gw);
        jeu.show();
        
+       gw.requestFocus();
+       
        //Kévin: Le menu principal se ferme au lancement d'une nouvelle partie
        Stage fermeture = (Stage) nouvellePartie.getScene().getWindow();
        fermeture.close();

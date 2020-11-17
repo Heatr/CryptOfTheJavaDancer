@@ -20,6 +20,10 @@ public class Game {
     private Map map;
     private Player player;
     private ArrayList<GameItem> gameItems;
+
+    public Player getPlayer() {
+        return player;
+    }
     private boolean running;
  
     /**
@@ -32,7 +36,7 @@ public class Game {
     public Game(int width, int height){
         map = new Map(width, height);
         running = true;
-        player = Player.getInstance(this, new Coordonnee(6, 3));
+        player = Player.getInstance(this, new Coordonnee(11, 2));
         gameItems = new ArrayList<GameItem>();
     }
     

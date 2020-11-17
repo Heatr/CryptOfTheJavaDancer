@@ -19,21 +19,30 @@ import projet.tutoré.map.cases.Case;
  */
 public class Player extends Entity{
     
-    
     /**
      * Instance unique du joueur
      */
     private static Player instance = null;
     
-    
+    private Coordonnee coordonnee;
+
+    public Coordonnee getCoordonnee(){
+        return coordonnee;
+    }
+
     /**
      * Constructeur de l'instance du Joueur
      */
-    private Player(Game g, String name, Coordonnee coo){
+    public void setCoordonnee(Coordonnee coordonnee) {
+        this.coordonnee = coordonnee;
+    }
+
+    private Player(Game g, String name, Coordonnee coo) {
         super(g, name);
         this.sprite = Sprite.getInstance("cadence.png");
         for (Case c: g.getMap().getCases()){
             if(c.getCoordonnee().equals(coo)){
+                this.coordonnee = coo;
                 c.addGameItem(this);
             }
         }
@@ -67,8 +76,5 @@ public class Player extends Entity{
         }
         return instance;
     }
-    
-    
-    
     
 }

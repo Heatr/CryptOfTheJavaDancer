@@ -73,4 +73,20 @@ public class Coordonnee {
     public String toString(){
         return this.x + "/" + this.y;
     }
+    
+    public Coordonnee getCoordonneeHaut(){
+        return new Coordonnee(this.x, this.y - 1);
+    }
+    
+    public Coordonnee getCoordonneeBas(){
+        return new Coordonnee(this.x, this.y + 1);
+    }
+    
+    public Coordonnee getCoordonneeDroite(){
+        return new Coordonnee(this.x + 1, this.y);
+    }
+    
+    public Coordonnee getCoordonneeGauche(){
+        return new Coordonnee(this.x - 1, this.y);
+    }
 }

@@ -5,22 +5,14 @@
  */
 package projet.tutoré.IHM;
 
-import java.awt.ScrollPane;
+import javafx.event.EventHandler;
 import projet.tutoré.map.cases.Case;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import projet.tutoré.Game;
-import projet.tutoré.images.Sprite;
 import projet.tutoré.map.cases.Coordonnee;
 import projet.tutoré.map.cases.TypeCase;
 
@@ -36,7 +28,7 @@ public class GameWindow extends Parent {
     
     /**
      * Créer une nouvelle fenêtre de jeu
-     * Récupère l'instance de Game en paramètre et initialise les éléments de la fenêtre
+     * Récupère l'instance de Game en paramètre et initialise les éléments de la fenêtre, configure les inputs
      * @param g l'instance de Game en cours
      */
     public GameWindow(Game g){
@@ -50,36 +42,92 @@ public class GameWindow extends Parent {
         
         StackPane s = new StackPane();
         this.getChildren().add(s);
-
-        for(Case c:g.getMap().getCases()){
-            ImageView caseView = new ImageView(c.getSprite().getImage());
-            caseView.setFitWidth(50);
-            caseView.setFitHeight(50);
-            caseView.setTranslateX(c.getCoordonnee().getX()*50);
-            caseView.setTranslateY(c.getCoordonnee().getY()*50);
-
-            s.getChildren().add(caseView);
-            
-            if(c.getTypeCase() == TypeCase.Classic && g.getMap().getCase(new Coordonnee(c.getCoordonnee().getX(), c.getCoordonnee().getY()-1)) != null){
-                if(g.getMap().getCase(new Coordonnee(c.getCoordonnee().getX(), c.getCoordonnee().getY()-1)).getTypeCase() == TypeCase.Wall){
-                    caseView = new ImageView(c.getSpriteDown().getImage());
-                    caseView.setFitWidth(50);
-                    caseView.setFitHeight(50);
-                    caseView.setTranslateX(c.getCoordonnee().getX()*50);
-                    caseView.setTranslateY(c.getCoordonnee().getY()*50);
-                    
-                    s.getChildren().add(caseView);
+        
+        update(s);
+        
+        this.setOnKeyPressed(new EventHandler<KeyEvent>(){
+            public void handle(KeyEvent ke){
+                if(ke.getCode().equals(KeyCode.D)){
+                    //System.out.println("test2");
+                    Coordonnee temp = new Coordonnee(g.getPlayer().getCoordonnee().getX()+1, g.getPlayer().getCoordonnee().getY());    
+                    if(g.getMap().getCase(temp).getTypeCase() != TypeCase.Wall){
+                        g.getMap().getCase(g.getPlayer().getCoordonnee()).removeGameItem(g.getPlayer());
+                        g.getPlayer().setCoordonnee(temp);
+                        g.getMap().getCase(temp).addGameItem(g.getPlayer());
+                        
+                        update(s);
+                    }                          
+                }
+                else if(ke.getCode().equals(KeyCode.Z)){
+                    Coordonnee temp = new Coordonnee(g.getPlayer().getCoordonnee().getX(), g.getPlayer().getCoordonnee().getY()-1);    
+                    if(g.getMap().getCase(temp).getTypeCase() != TypeCase.Wall){
+                        g.getMap().getCase(g.getPlayer().getCoordonnee()).removeGameItem(g.getPlayer());
+                        g.getPlayer().setCoordonnee(temp);
+                        g.getMap().getCase(temp).addGameItem(g.getPlayer());
+                        
+                        update(s);
+                    }
+                }
+                else if(ke.getCode().equals(KeyCode.Q)){
+                    Coordonnee temp = new Coordonnee(g.getPlayer().getCoordonnee().getX()-1, g.getPlayer().getCoordonnee().getY());    
+                    if(g.getMap().getCase(temp).getTypeCase() != TypeCase.Wall){
+                        g.getMap().getCase(g.getPlayer().getCoordonnee()).removeGameItem(g.getPlayer());
+                        g.getPlayer().setCoordonnee(temp);
+                        g.getMap().getCase(temp).addGameItem(g.getPlayer());
+                        
+                        update(s);
+                    }
+                }
+                else if(ke.getCode().equals(KeyCode.S)){
+                    Coordonnee temp = new Coordonnee(g.getPlayer().getCoordonnee().getX(), g.getPlayer().getCoordonnee().getY()+1);    
+                    if(g.getMap().getCase(temp).getTypeCase() != TypeCase.Wall){
+                        g.getMap().getCase(g.getPlayer().getCoordonnee()).removeGameItem(g.getPlayer());
+                        g.getPlayer().setCoordonnee(temp);
+                        g.getMap().getCase(temp).addGameItem(g.getPlayer());
+                        
+                        update(s);
+                    }
                 }
             }
-            
-            if(c.getGameItem() != null){
-                ImageView caseContentView = new ImageView(c.getGameItem().getSprite().getImage());
-                caseContentView.setFitWidth(40);
-                caseContentView.setFitHeight(50);
-                caseContentView.setTranslateX(c.getCoordonnee().getX()*50);
-                caseContentView.setTranslateY(c.getCoordonnee().getY()*50);
-                s.getChildren().add(caseContentView);
+        });
+    }
+    
+    /**
+     * Met à jour l'écran de jeu
+     * @param s 
+     */
+    public void update(StackPane s){
+        s.getChildren().clear();
+        for(Case c: game.getMap().getCases()){
+            ImageView caseView = new ImageView(c.getSprite().getImage());
+            if(c.getTypeCase() == TypeCase.Wall){
+                this.configAndDisplay(caseView, s, 50, 50, c.getCoordonnee().getX()*50, c.getCoordonnee().getY()*50 - 25);
+                if(c.getGameItem() != null){
+                    ImageView caseContentView = new ImageView(c.getGameItem().getSprite().getImage());
+                    this.configAndDisplay(caseContentView, s, 40, 50, c.getCoordonnee().getX()*50, c.getCoordonnee().getY()*50);
+                }
             }
-        }  
-    }   
+            else{
+                this.configAndDisplay(caseView, s, 50, 50, c.getCoordonnee().getX()*50, c.getCoordonnee().getY()*50);
+                if(game.getMap().getCase(c.getCoordonnee().getCoordonneeHaut()) != null){
+                    if(game.getMap().getCase(c.getCoordonnee().getCoordonneeHaut()).getTypeCase() == TypeCase.Wall){
+                        caseView = new ImageView(c.getSpriteAlt().getImage());
+                        this.configAndDisplay(caseView, s, 50, 50, c.getCoordonnee().getX()*50, c.getCoordonnee().getY()*50 - 25);
+                    }
+                    if(c.getGameItem() != null){
+                        ImageView caseContentView = new ImageView(c.getGameItem().getSprite().getImage());
+                        this.configAndDisplay(caseContentView, s, 40, 50, c.getCoordonnee().getX()*50, c.getCoordonnee().getY()*50 - 15);
+                    }
+                }
+            }
+        }
+    }
+    
+    public void configAndDisplay(ImageView iv, StackPane s, int width, int height, int x, int y){
+        iv.setFitWidth(width);
+        iv.setFitHeight(height);
+        iv.setTranslateX(x);
+        iv.setTranslateY(y);
+        s.getChildren().add(iv);
+    }
 }
