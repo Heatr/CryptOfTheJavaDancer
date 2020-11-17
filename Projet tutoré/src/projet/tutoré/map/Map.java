@@ -75,9 +75,9 @@ public class Map extends Parent{
         int compt = 0;
         cases = new HashMap<Coordonnee, Case>();
         Coordonnee temp = new Coordonnee(0, 0);
-        for(int i=0;i<width;i++){
-            for(int j=0;j<height;j++){
-                temp = new Coordonnee(i, j);
+        for(int i=0;i<height;i++){
+            for(int j=0;j<width;j++){
+                temp = new Coordonnee(j, i);
                 cases.put(temp, CaseFactory.creerCase(s.charAt(compt), temp));
                 compt += 1;
             }

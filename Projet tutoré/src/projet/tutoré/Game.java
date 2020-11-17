@@ -32,7 +32,7 @@ public class Game {
     public Game(int width, int height){
         map = new Map(width, height);
         running = true;
-        player = Player.getInstance(this, new Coordonnee(2, 2));
+        player = Player.getInstance(this, new Coordonnee(6, 3));
         gameItems = new ArrayList<GameItem>();
     }
     

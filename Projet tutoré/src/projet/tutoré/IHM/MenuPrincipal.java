@@ -102,7 +102,7 @@ public class MenuPrincipal extends Parent{
        Group root = new Group();
        Stage jeu = new Stage();
        jeu.setTitle("Crypt of the NecroDancer");
-       GameWindow gw = new GameWindow(new Game(38,20));
+       GameWindow gw = new GameWindow(new Game(39,21));
        jeu.setScene(new Scene(root,1920,1020, Color.BLACK));
        root.getChildren().add(gw);
        jeu.show();
