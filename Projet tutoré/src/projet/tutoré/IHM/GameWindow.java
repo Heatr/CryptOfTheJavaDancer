@@ -5,6 +5,7 @@
  */
 package projet.tutoré.IHM;
 
+import java.nio.file.Paths;
 import javafx.event.EventHandler;
 import projet.tutoré.map.cases.Case;
 import javafx.scene.Parent;
@@ -12,6 +13,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import projet.tutoré.Game;
 import projet.tutoré.map.cases.Coordonnee;
 import projet.tutoré.map.cases.TypeCase;
@@ -23,7 +26,7 @@ import projet.tutoré.map.cases.TypeCase;
 public class GameWindow extends Parent {
     
     private Game game;
-    
+    private MediaPlayer musique;
     //private Rectangle r = new Rectangle();
     
     /**
@@ -38,6 +41,12 @@ public class GameWindow extends Parent {
 //        r.setFill(Color.BLUE);
 //        r.setTranslateX(150);
 //        r.setTranslateY(500);
+
+        Media media = new Media(Paths.get("Musiques/Disco_Descent_1-1.mp3").toUri().toString());
+        MediaPlayer player = new MediaPlayer(media); 
+        player.setVolume(0.03);
+        this.musique = player;
+        player.play();
 
         
         StackPane s = new StackPane();
