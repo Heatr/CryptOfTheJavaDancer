@@ -3,17 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/kevin/OneDrive/Bureau/GitHub/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/Game.java</file>
-            <file>file:/C:/Users/kevin/OneDrive/Bureau/GitHub/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/ProjetTutoré.java</file>
-            <file>file:/C:/Users/kevin/OneDrive/Bureau/GitHub/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/map/Map.java</file>
-            <file>file:/C:/Users/kevin/OneDrive/Bureau/GitHub/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/gameitems/player/Player.java</file>
-            <file>file:/C:/Users/kevin/OneDrive/Bureau/GitHub/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/map/cases/CaseClassic.java</file>
-            <file>file:/C:/Users/kevin/OneDrive/Bureau/GitHub/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/map/cases/CaseStair.java</file>
-            <file>file:/C:/Users/kevin/OneDrive/Bureau/GitHub/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/map/cases/CaseFactory.java</file>
-            <file>file:/C:/Users/kevin/OneDrive/Bureau/GitHub/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/map/cases/CaseWall.java</file>
             <file>file:/C:/Users/kevin/OneDrive/Bureau/GitHub/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/IHM/GameWindow.java</file>
-            <file>file:/C:/Users/kevin/OneDrive/Bureau/GitHub/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/map/cases/Coordonnee.java</file>
-            <file>file:/C:/Users/kevin/OneDrive/Bureau/GitHub/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/map/cases/Case.java</file>
+            <file>file:/C:/Users/kevin/OneDrive/Bureau/GitHub/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/IHM/VictoryWindow.java</file>
             <file>file:/C:/Users/kevin/OneDrive/Bureau/GitHub/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/IHM/MenuPrincipal.java</file>
         </group>
     </open-files>

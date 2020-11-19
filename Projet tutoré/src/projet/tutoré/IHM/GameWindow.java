@@ -5,16 +5,22 @@
  */
 package projet.tutoré.IHM;
 
+import java.awt.ScrollPane;
 import java.nio.file.Paths;
 import javafx.event.EventHandler;
+import javafx.scene.Group;
 import projet.tutoré.map.cases.Case;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import projet.tutoré.Game;
 import projet.tutoré.map.cases.Coordonnee;
 import projet.tutoré.map.cases.TypeCase;
@@ -26,6 +32,7 @@ import projet.tutoré.map.cases.TypeCase;
 public class GameWindow extends Parent {
     
     private Game game;
+    private Group root;
     private MediaPlayer musique;
     //private Rectangle r = new Rectangle();
     
@@ -34,8 +41,9 @@ public class GameWindow extends Parent {
      * Récupère l'instance de Game en paramètre et initialise les éléments de la fenêtre, configure les inputs
      * @param g l'instance de Game en cours
      */
-    public GameWindow(Game g){
+    public GameWindow(Group r, Game g){
         game = g;
+        root = r;
 //        r.setWidth(500);
 //        r.setHeight(80);
 //        r.setFill(Color.BLUE);
@@ -47,7 +55,6 @@ public class GameWindow extends Parent {
         player.setVolume(0.03);
         this.musique = player;
         player.play();
-
         
         StackPane s = new StackPane();
         this.getChildren().add(s);
@@ -96,6 +103,21 @@ public class GameWindow extends Parent {
                         
                         update(s);
                     }
+                }
+                if(g.getMap().getCase(g.getPlayer().getCoordonnee()).getTypeCase() == TypeCase.Stair){
+                    player.stop();
+                    Group root = new Group();
+                    Stage victoire = new Stage();
+                    victoire.setTitle("Crypt of the NecroDancer");
+                    VictoryWindow vw = new VictoryWindow(root);
+                    victoire.setScene(new Scene(root,1920,1020, Color.BLACK));
+                    root.getChildren().add(vw);
+                    victoire.show();
+                    
+                    vw.requestFocus();
+       
+                    Stage fermeture = (Stage) r.getScene().getWindow();
+                    fermeture.close();
                 }
             }
         });
