@@ -50,6 +50,8 @@ public class GameWindow extends Parent {
 //        r.setTranslateX(150);
 //        r.setTranslateY(500);
 
+        
+
         Media media = new Media(Paths.get("Musiques/Disco_Descent_1-1.mp3").toUri().toString());
         MediaPlayer player = new MediaPlayer(media); 
         player.setVolume(0.03);

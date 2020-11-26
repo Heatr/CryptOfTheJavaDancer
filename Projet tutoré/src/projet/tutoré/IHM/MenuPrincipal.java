@@ -14,6 +14,7 @@ import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -100,11 +101,14 @@ public class MenuPrincipal extends Parent{
    public void appuyerNewWindows(){
        this.musique.stop();
        Group root = new Group();
+       ScrollPane scroll = new ScrollPane();
        Stage jeu = new Stage();
        jeu.setTitle("Crypt of the NecroDancer");
        GameWindow gw = new GameWindow(root, new Game(39,21));
        jeu.setScene(new Scene(root,1920,1020, Color.BLACK));
+       root.getChildren().addAll(scroll);
        root.getChildren().add(gw);
+       
        jeu.show();
        
        gw.requestFocus();
