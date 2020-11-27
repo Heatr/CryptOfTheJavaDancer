@@ -1,0 +1,23 @@
+@font-face{
+    -fx-font-family: 'NecroSans';
+    src: url('necrosans.ttf');
+}
+
+.button{
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-font-family:"NecroSans";
+    -fx-font-size: 40px;
+    -fx-text-fill: #FFFF00;
+    -fx-text-align:center;
+}
+
+.button:focused {
+    -fx-border-color: transparent;
+    -fx-border-width: 1, 1;
+    -fx-border-style: solid, segments(1, 2);
+    -fx-border-radius: 0, 0;
+    -fx-border-insets: 1 1 1 1, 0;
+}

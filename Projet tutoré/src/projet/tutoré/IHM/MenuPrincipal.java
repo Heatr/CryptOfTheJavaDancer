@@ -22,6 +22,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import projet.tutoré.Game;
 
@@ -50,22 +51,17 @@ public class MenuPrincipal extends Parent{
         mainmenu.setPreserveRatio(true);
         gridpane.add(mainmenu, 1, 0);
         this.getChildren().add(gridpane);
-        nouvellePartie.setLayoutX(900);
+        nouvellePartie.setLayoutX(700);
         nouvellePartie.setLayoutY(800);
-        //options.setLayoutX(900);
-        //options.setLayoutY(850);
-        quitter.setLayoutX(900);
+        quitter.setLayoutX(800);
         quitter.setLayoutY(900);
 
         nouvellePartie.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-        //options.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        getStylesheets().add(getClass().getResource("bouton.css").toExternalForm());
         quitter.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-        quitter.setStyle("-fx-font-size: 15pt");
-        //options.setStyle("-fx-font-size: 15pt");
-        nouvellePartie.setStyle("-fx-font-size: 15pt");
+     
      
         this.getChildren().add(nouvellePartie);
-        //this.getChildren().add(options);
         this.getChildren().add(quitter);
         
         quitter.setOnMousePressed(new EventHandler<MouseEvent>(){
@@ -84,7 +80,6 @@ public class MenuPrincipal extends Parent{
     }
     
    Button nouvellePartie = new Button("Nouvelle Partie");
-   //Button options = new Button("Options");
    Button quitter = new Button("Quitter");
    
    /**
@@ -104,6 +99,7 @@ public class MenuPrincipal extends Parent{
        ScrollPane scroll = new ScrollPane();
        Stage jeu = new Stage();
        jeu.setTitle("Crypt of the NecroDancer");
+       
        GameWindow gw = new GameWindow(root, new Game(39,21));
        jeu.setScene(new Scene(root,1920,1020, Color.BLACK));
        root.getChildren().addAll(scroll);
@@ -114,6 +110,6 @@ public class MenuPrincipal extends Parent{
        gw.requestFocus();
        
        Stage fermeture = (Stage) nouvellePartie.getScene().getWindow();
-       fermeture.close();
+       fermeture.close();      
    }
 }
