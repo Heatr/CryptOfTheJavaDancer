@@ -18,6 +18,23 @@ abstract public class GameItem {
 
     private String name;
     protected Sprite sprite;
+    private Coordonnee coordonnee;
+
+    /**
+     * Retourne les Coordonnees du joueur
+     * @return les Coordonnees du joueur
+     */
+    public Coordonnee getCoordonnee(){
+        return coordonnee;
+    }
+
+    /**
+     * Modifie les Coordonnees du joueur
+     * @param coordonnee les nouvelles coordonnees du joueur
+     */
+    public void setCoordonnee(Coordonnee coordonnee) {
+        this.coordonnee = coordonnee;
+    }
     
     /**
      * Constructeur du GameItem

@@ -74,7 +74,14 @@ public class Game {
         return true;
     }
     
-    public void MoveGameItem(GameItem gi){
-        
+    /**
+     * Déplace le joueur
+     * Retire le joueur de sa case, l'ajoute à la nouvelle et modifie ses coodonnées
+     * @param coo les nouvelles coordonnées du joueur
+     */
+    public void MovePlayer(Coordonnee coo){
+        this.map.getCase(this.player.getCoordonnee()).removeGameItem(this.player);
+        this.map.getCase(coo).addGameItem(this.player);
+        this.player.setCoordonnee(coo);
     }
 }

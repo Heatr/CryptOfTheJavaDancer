@@ -23,24 +23,6 @@ public class Player extends Entity{
      * Instance unique du joueur
      */
     private static Player instance = null;
-    
-    private Coordonnee coordonnee;
-
-    /**
-     * Retourne les Coordonnees du joueur
-     * @return les Coordonnees du joueur
-     */
-    public Coordonnee getCoordonnee(){
-        return coordonnee;
-    }
-
-    /**
-     * Modifie les Coordonnees du joueur
-     * @param coordonnee les nouvelles coordonnees du joueur
-     */
-    public void setCoordonnee(Coordonnee coordonnee) {
-        this.coordonnee = coordonnee;
-    }
 
     /**
      * Constructeur de l'instance du Joueur
@@ -50,7 +32,7 @@ public class Player extends Entity{
         this.sprite = Sprite.getInstance("cadence.png");
         for (Case c: g.getMap().getCases()){
             if(c.getCoordonnee().equals(coo)){
-                this.coordonnee = coo;
+                this.setCoordonnee(coo);
                 c.addGameItem(this);
             }
         }

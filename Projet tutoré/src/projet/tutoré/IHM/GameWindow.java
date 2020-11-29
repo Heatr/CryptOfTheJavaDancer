@@ -13,7 +13,6 @@ import projet.tutoré.map.cases.Case;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
@@ -22,6 +21,8 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import projet.tutoré.Game;
+import projet.tutoré.controller.Controller;
+import projet.tutoré.controller.ControllerMovement;
 import projet.tutoré.map.cases.Coordonnee;
 import projet.tutoré.map.cases.TypeCase;
 
@@ -63,49 +64,12 @@ public class GameWindow extends Parent {
         
         update(s);
         
+        //Kévin: Le Controller s'occupe d'avertir le modèle que le joueur se déplace
+        ControllerMovement movement = new ControllerMovement(this.game);
         this.setOnKeyPressed(new EventHandler<KeyEvent>(){
             public void handle(KeyEvent ke){
-                if(ke.getCode().equals(KeyCode.D)){
-                    //System.out.println("test2");
-                    Coordonnee temp = new Coordonnee(g.getPlayer().getCoordonnee().getX()+1, g.getPlayer().getCoordonnee().getY());    
-                    if(g.getMap().getCase(temp).getTypeCase() != TypeCase.Wall){
-                        g.getMap().getCase(g.getPlayer().getCoordonnee()).removeGameItem(g.getPlayer());
-                        g.getPlayer().setCoordonnee(temp);
-                        g.getMap().getCase(temp).addGameItem(g.getPlayer());
-                        
-                        update(s);
-                    }                          
-                }
-                else if(ke.getCode().equals(KeyCode.Z)){
-                    Coordonnee temp = new Coordonnee(g.getPlayer().getCoordonnee().getX(), g.getPlayer().getCoordonnee().getY()-1);    
-                    if(g.getMap().getCase(temp).getTypeCase() != TypeCase.Wall){
-                        g.getMap().getCase(g.getPlayer().getCoordonnee()).removeGameItem(g.getPlayer());
-                        g.getPlayer().setCoordonnee(temp);
-                        g.getMap().getCase(temp).addGameItem(g.getPlayer());
-                        
-                        update(s);
-                    }
-                }
-                else if(ke.getCode().equals(KeyCode.Q)){
-                    Coordonnee temp = new Coordonnee(g.getPlayer().getCoordonnee().getX()-1, g.getPlayer().getCoordonnee().getY());    
-                    if(g.getMap().getCase(temp).getTypeCase() != TypeCase.Wall){
-                        g.getMap().getCase(g.getPlayer().getCoordonnee()).removeGameItem(g.getPlayer());
-                        g.getPlayer().setCoordonnee(temp);
-                        g.getMap().getCase(temp).addGameItem(g.getPlayer());
-                        
-                        update(s);
-                    }
-                }
-                else if(ke.getCode().equals(KeyCode.S)){
-                    Coordonnee temp = new Coordonnee(g.getPlayer().getCoordonnee().getX(), g.getPlayer().getCoordonnee().getY()+1);    
-                    if(g.getMap().getCase(temp).getTypeCase() != TypeCase.Wall){
-                        g.getMap().getCase(g.getPlayer().getCoordonnee()).removeGameItem(g.getPlayer());
-                        g.getPlayer().setCoordonnee(temp);
-                        g.getMap().getCase(temp).addGameItem(g.getPlayer());
-                        
-                        update(s);
-                    }
-                }
+                movement.inform(ke.getCode());
+                update(s);
                 if(g.getMap().getCase(g.getPlayer().getCoordonnee()).getTypeCase() == TypeCase.Stair){
                     player.stop();
                     Group root = new Group();
