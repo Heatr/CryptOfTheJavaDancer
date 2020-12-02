@@ -96,17 +96,18 @@ public class MenuPrincipal extends Parent{
    public void appuyerNewWindows(){
        this.musique.stop();
        Group root = new Group();
-       ScrollPane scroll = new ScrollPane();
+       Game game=new Game(39,21);
        Stage jeu = new Stage();
        jeu.setTitle("Crypt of the NecroDancer");
        
-       GameWindow gw = new GameWindow(root, new Game(39,21));
+       GameWindow gw = new GameWindow(root, game);
+       Scroll scroll=new Scroll(gw,game);
        jeu.setScene(new Scene(root,1920,1020, Color.BLACK));
-       root.getChildren().addAll(scroll);
+       
        root.getChildren().add(gw);
        
        jeu.show();
-       
+       scroll.start(jeu);
        gw.requestFocus();
        
        Stage fermeture = (Stage) nouvellePartie.getScene().getWindow();
