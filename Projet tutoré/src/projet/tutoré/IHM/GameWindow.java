@@ -12,6 +12,7 @@ import javafx.scene.Group;
 import projet.tutoré.map.cases.Case;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
@@ -23,6 +24,7 @@ import javafx.stage.Stage;
 import projet.tutoré.Game;
 import projet.tutoré.controller.Controller;
 import projet.tutoré.controller.ControllerMovement;
+import projet.tutoré.images.Sprite;
 import projet.tutoré.map.cases.Coordonnee;
 import projet.tutoré.map.cases.TypeCase;
 
@@ -118,6 +120,11 @@ public class GameWindow extends Parent {
                     }
                 }
             }
+        }
+        //HUD DES PV DU JOUEUR
+        for(int i = 0 ;i< this.game.getPlayer().getPv();i++){
+            ImageView coeur = new ImageView(Sprite.getInstance("heart.png").getImage());
+            this.configAndDisplay(coeur, s, 70, 70, i*90 + 30, 15);
         }
     }
     

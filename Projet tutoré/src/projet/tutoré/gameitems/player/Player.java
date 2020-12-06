@@ -23,6 +23,7 @@ public class Player extends Entity{
      * Instance unique du joueur
      */
     private static Player instance = null;
+    private int Pv = 3;
 
     /**
      * Constructeur de l'instance du Joueur
@@ -65,6 +66,14 @@ public class Player extends Entity{
             instance = new Player(g, "player", coo);
         }
         return instance;
+    }
+    
+    /**
+     * Fonction qui retourne le nombre de nombre de point de vie du joueur
+     * @return le nombre de point de vie du joueur
+     */
+    public int getPv(){
+        return this.Pv;
     }
     
 }
