@@ -53,7 +53,7 @@ public class MenuPrincipal extends Parent{
         this.getChildren().add(gridpane);
         nouvellePartie.setLayoutX(750);
         nouvellePartie.setLayoutY(850);
-        quitter.setLayoutX(850);
+        quitter.setLayoutX(834);
         quitter.setLayoutY(900);
 
         nouvellePartie.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
