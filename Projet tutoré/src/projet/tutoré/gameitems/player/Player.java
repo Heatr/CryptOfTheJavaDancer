@@ -23,7 +23,8 @@ public class Player extends Entity{
      * Instance unique du joueur
      */
     private static Player instance = null;
-    private int Pv = 3;
+    private int Pv = 2;
+    private static final int vieMax = 3;
 
     /**
      * Constructeur de l'instance du Joueur
@@ -74,6 +75,10 @@ public class Player extends Entity{
      */
     public int getPv(){
         return this.Pv;
+    }
+    
+    public int getVieMax(){
+        return vieMax;
     }
     
 }
