@@ -38,19 +38,18 @@ public class VictoryWindow extends Parent {
         victory.setPreserveRatio(true);
         gridpane.add(victory, 1, 0);
         this.getChildren().add(gridpane);
-        //options.setLayoutX(900);
-        //options.setLayoutY(850);
         quitter.setLayoutX(1180); //en taille normale, c'était 1285
-        quitter.setLayoutY(500);
+        quitter.setLayoutY(600);
+        mainmenu.setLayoutX(1180); //en taille normale, c'était 1285
+        mainmenu.setLayoutY(500);
 
-        //options.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        mainmenu.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         quitter.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         getStylesheets().add(getClass().getResource("boutonVictoire.css").toExternalForm());
-        //quitter.setStyle("-fx-font-size: 20pt");
-        //options.setStyle("-fx-font-size: 15pt");
+
 
      
-        //this.getChildren().add(options);
+        this.getChildren().add(mainmenu);
         this.getChildren().add(quitter);
 
         
@@ -60,8 +59,15 @@ public class VictoryWindow extends Parent {
         appuyerQuitter();
         }
         });
+        mainmenu.setOnMousePressed(new EventHandler<MouseEvent>(){
+        @Override
+        public void handle(MouseEvent me){
+        appuyerMenuPrincipal();
+        }
+        });
     }
     
+    Button mainmenu = new Button("Menu Principal");
     Button quitter = new Button("Quitter");
 
     
@@ -70,6 +76,10 @@ public class VictoryWindow extends Parent {
     */
    public void appuyerQuitter(){
       quitter.setOnAction(e -> Platform.exit());
+   }
+   
+   public void appuyerMenuPrincipal(){
+       mainmenu.setOnAction(m -> new MenuPrincipal());
    }
     
 }

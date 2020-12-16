@@ -36,7 +36,7 @@ public class MenuPrincipal extends Parent{
     private MediaPlayer musique;
     private static MenuPrincipal instance;
        
-    private MenuPrincipal() {
+    public MenuPrincipal() {
        
         //Kévin: Ajout de la musique (tourne en boucle)
         Media media = new Media(Paths.get("Musiques/Title_Screen_Theme.mp3").toUri().toString());
@@ -97,12 +97,12 @@ public class MenuPrincipal extends Parent{
    private void appuyerNewWindows(){
        this.musique.stop();
        Group root = new Group();
-       Game game=new Game(39,21);
+       Game game = new Game(39,21);
        Stage jeu = new Stage();
        jeu.setTitle("Crypt of the NecroDancer");
        
        GameWindow gw = new GameWindow(root, game);
-       Scroll scroll=new Scroll(gw,game);
+       Scroll scroll = new Scroll(gw,game);
        jeu.setScene(new Scene(root,1920,1020, Color.BLACK));
        
        root.getChildren().add(gw);
@@ -115,11 +115,11 @@ public class MenuPrincipal extends Parent{
        fermeture.close();      
    }
    
-   public static MenuPrincipal getIntence(){
+   public static MenuPrincipal getInstance(){
        if(instance == null){
            MenuPrincipal m = new MenuPrincipal();
            MenuPrincipal.instance = m;
-           return m;
+           return MenuPrincipal.instance;
        }
        else 
        {

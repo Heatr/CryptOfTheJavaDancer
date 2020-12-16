@@ -36,8 +36,8 @@ public class Scroll extends Application{
     scroll.setMouseTransparent(true);
     
     scroll.setContent(gw);
-    gw.getPaneMap().setScaleX(1.5);
-    gw.getPaneMap().setScaleY(1.5);
+    gw.getPaneMap().setScaleX(1.0);
+    gw.getPaneMap().setScaleY(1.0);
     //scroll.setHmax(scroll.getWidth());
     //scroll.setVmax(scroll.getHeight());
     //scroll.setHvalue(this.g.getPlayer().getCoordonnee().getX());
@@ -55,7 +55,7 @@ public class Scroll extends Application{
     scroll.setPannable(true);
     
     Pane panelPrincipal = new Pane();
-    Scene scene = new Scene(panelPrincipal,1000,1000);
+    Scene scene = new Scene(panelPrincipal,1920,1020);
     //panelPrincipal.prefWidthProperty().bind(scene.widthProperty());
     //panelPrincipal.prefHeightProperty().bind(scene.heightProperty());
     panelPrincipal.setPrefHeight(800);

@@ -75,6 +75,7 @@ public class GameWindow extends Parent {
         //Kévin: Le Controller s'occupe d'avertir le modèle que le joueur se déplace
         ControllerMovement movement = new ControllerMovement(this.game);
         this.setOnKeyPressed(new EventHandler<KeyEvent>(){
+            @Override
             public void handle(KeyEvent ke){
                 movement.inform(ke.getCode());
                 update(s);
