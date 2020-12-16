@@ -126,6 +126,10 @@ public class GameWindow extends Parent {
             ImageView coeur = new ImageView(Sprite.getInstance("heart.png").getImage());
             this.configAndDisplay(coeur, s, 70, 70, i*90 + 30, 15);
         }
+        for(int j = this.game.getPlayer().getPv(); j< this.game.getPlayer().getVieMax(); j++){
+            ImageView coeurVide = new ImageView(Sprite.getInstance("heart_empty.png").getImage());
+            this.configAndDisplay(coeurVide, s, 70, 70, j*90 + 30, 15);
+        }
     }
     
     /**
