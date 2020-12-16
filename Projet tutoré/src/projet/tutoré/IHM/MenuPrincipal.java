@@ -34,8 +34,9 @@ import projet.tutoré.Game;
 public class MenuPrincipal extends Parent{
     
     private MediaPlayer musique;
+    private static MenuPrincipal instance;
        
-    public MenuPrincipal() {
+    private MenuPrincipal() {
        
         //Kévin: Ajout de la musique (tourne en boucle)
         Media media = new Media(Paths.get("Musiques/Title_Screen_Theme.mp3").toUri().toString());
@@ -67,14 +68,14 @@ public class MenuPrincipal extends Parent{
         quitter.setOnMousePressed(new EventHandler<MouseEvent>(){
         @Override
         public void handle(MouseEvent me){
-        appuyerQuitter();
+            appuyerQuitter();
         }
         });
         
         nouvellePartie.setOnMousePressed(new EventHandler<MouseEvent>(){
         @Override
         public void handle(MouseEvent me){
-        appuyerNewWindows();
+            appuyerNewWindows();
         }
         });
     }
@@ -85,7 +86,7 @@ public class MenuPrincipal extends Parent{
    /**
     * Ferme le jeu
     */
-   public void appuyerQuitter(){
+   private void appuyerQuitter(){
       quitter.setOnAction(e -> Platform.exit());
    }
    
@@ -93,7 +94,7 @@ public class MenuPrincipal extends Parent{
     * Lance une nouvelle partie
     * Crée un nouveau Game et lance la fenêtre de jeu
     */
-   public void appuyerNewWindows(){
+   private void appuyerNewWindows(){
        this.musique.stop();
        Group root = new Group();
        Game game=new Game(39,21);
@@ -112,5 +113,17 @@ public class MenuPrincipal extends Parent{
        
        Stage fermeture = (Stage) nouvellePartie.getScene().getWindow();
        fermeture.close();      
+   }
+   
+   public static MenuPrincipal getIntence(){
+       if(instance == null){
+           MenuPrincipal m = new MenuPrincipal();
+           MenuPrincipal.instance = m;
+           return m;
+       }
+       else 
+       {
+           return MenuPrincipal.instance;
+       }
    }
 }

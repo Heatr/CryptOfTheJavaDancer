@@ -33,6 +33,8 @@ public class Scroll extends Application{
     //layout.getChildren().add(gw);
     ScrollPane scroll = createScrollPane();
     
+    scroll.setMouseTransparent(true);
+    
     scroll.setContent(gw);
     gw.getPaneMap().setScaleX(1.5);
     gw.getPaneMap().setScaleY(1.5);

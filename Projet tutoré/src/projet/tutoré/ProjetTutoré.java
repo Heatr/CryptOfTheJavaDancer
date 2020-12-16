@@ -29,12 +29,11 @@ public class ProjetTutoré extends Application {
         Group root = new Group();
         Scene scene = new Scene(root, 1920, 1020);
            
-        MenuPrincipal mainmenu = new MenuPrincipal();
+        MenuPrincipal mainmenu = MenuPrincipal.getIntence();
         root.getChildren().add(mainmenu);
         
         primaryStage.setScene(scene);
         primaryStage.show();
-        
         
     }
 

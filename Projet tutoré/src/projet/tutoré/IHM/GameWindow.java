@@ -5,7 +5,7 @@
  */
 package projet.tutoré.IHM;
 
-import static com.sun.org.apache.regexp.internal.RETest.test;
+//import static com.sun.org.apache.regexp.internal.RETest.test;
 import java.awt.Component;
 import java.awt.ScrollPane;
 import java.nio.file.Paths;
@@ -58,8 +58,6 @@ public class GameWindow extends Parent {
 //        r.setFill(Color.BLUE);
 //        r.setTranslateX(150);
 //        r.setTranslateY(500);
-
-        
 
         Media media = new Media(Paths.get("Musiques/Disco_Descent_1-1.mp3").toUri().toString());
         MediaPlayer player = new MediaPlayer(media); 
