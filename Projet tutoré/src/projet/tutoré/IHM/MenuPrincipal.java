@@ -103,7 +103,9 @@ public class MenuPrincipal extends Parent{
        
        GameWindow gw = new GameWindow(root, game);
        Scroll scroll = new Scroll(gw,game);
+
        jeu.setScene(new Scene(root,1920,1020, Color.BLACK));
+       
        
        root.getChildren().add(gw);
        

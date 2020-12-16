@@ -22,28 +22,30 @@ import projet.tutoré.Game;
 public class Scroll extends Application{
     private GameWindow gw;
     private Game g;
+    private ScrollPane scroll;
     
     public Scroll(GameWindow gameWindow, Game game){
         this.gw=gameWindow;
         this.g=game;
+        this.gw.setScroll(this);
     }
     @Override
     public void start(Stage stage) {
     //StackPane layout = new StackPane();
     //layout.getChildren().add(gw);
-    ScrollPane scroll = createScrollPane();
+    this.scroll = createScrollPane();
     
     scroll.setMouseTransparent(true);
     
     scroll.setContent(gw);
-    gw.getPaneMap().setScaleX(1.0);
-    gw.getPaneMap().setScaleY(1.0);
+    gw.getPaneMap().setScaleX(1.5);
+    gw.getPaneMap().setScaleY(1.5);
     //scroll.setHmax(scroll.getWidth());
     //scroll.setVmax(scroll.getHeight());
     //scroll.setHvalue(this.g.getPlayer().getCoordonnee().getX());
     //scroll.setVvalue(this.g.getPlayer().getCoordonnee().getY());
-    scroll.hvalueProperty().bind(this.gw.getViewPlayer().xProperty().divide(this.gw.getPaneMap().widthProperty()).multiply(scroll.hmaxProperty()));
-    scroll.vvalueProperty().bind(this.gw.getViewPlayer().yProperty().divide(this.gw.getPaneMap().heightProperty()).multiply(scroll.vmaxProperty()));
+    //scroll.hvalueProperty().bind(this.gw.getViewPlayer().xProperty().divide(this.gw.getPaneMap().widthProperty()).multiply(scroll.hmaxProperty()));
+    //scroll.vvalueProperty().bind(this.gw.getViewPlayer().yProperty().divide(this.gw.getPaneMap().heightProperty()).multiply(scroll.vmaxProperty()));
     
     scroll.hvalueProperty().addListener(new ChangeListener<Number>() {
         @Override
@@ -66,6 +68,8 @@ public class Scroll extends Application{
     
     stage.setScene(scene);
     stage.show();
+    
+    this.gw.setScrollPane(this.scroll);
     
     }
 

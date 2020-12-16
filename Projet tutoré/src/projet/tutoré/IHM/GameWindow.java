@@ -20,6 +20,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
+import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
@@ -43,6 +44,8 @@ public class GameWindow extends Parent {
     private MediaPlayer musique;
     private ImageView imageViewPlayer;
     private StackPane paneMap;
+    private Scroll scroll;
+    private javafx.scene.control.ScrollPane scrollPane;
     //private Rectangle r = new Rectangle();
     
     /**
@@ -65,10 +68,12 @@ public class GameWindow extends Parent {
         this.musique = player;
         player.play();
         
-        StackPane s = new StackPane();
-        this.paneMap = s;
+        StackPane s2 = new StackPane();
+        Pane s = new Pane();
+        this.paneMap = s2;
+        s2.getChildren().add(s);
         
-        this.getChildren().add(s);
+        this.getChildren().add(s2);
         
         update(s);
         
@@ -78,7 +83,15 @@ public class GameWindow extends Parent {
             @Override
             public void handle(KeyEvent ke){
                 movement.inform(ke.getCode());
-                update(s);
+                update(s2);
+                //scrollPane.hvalueProperty().bind(getViewPlayer().xProperty().divide(getPaneMap().widthProperty()).multiply(scrollPane.hmaxProperty()));
+                //scrollPane.vvalueProperty().bind(getViewPlayer().yProperty().divide(getPaneMap().heightProperty()).multiply(scrollPane.vmaxProperty()));
+                //scrollPane.
+                //System.out.println(scrollPane.hvalueProperty());
+                //System.out.println(scrollPane.vvalueProperty());
+                //(game.getPlayer().getCoordonnee().getX())/(getPaneMap().widthProperty())*(scrollPane.hmaxProperty()))
+                //scrollPane.hvalueProperty().bind(getViewPlayer().xProperty().divide(getPaneMap().widthProperty()).multiply(scrollPane.hmaxProperty()));
+                //scrollPane.vvalueProperty().bind(getViewPlayer().yProperty().divide(getPaneMap().heightProperty()).multiply(scrollPane.vmaxProperty()));
                 if(g.getMap().getCase(g.getPlayer().getCoordonnee()).getTypeCase() == TypeCase.Stair){
                     player.stop();
                     Group root = new Group();
@@ -103,7 +116,7 @@ public class GameWindow extends Parent {
      * Affiche les cases et leur contenu en prenant en compte la notion de profondeur
      * @param s StackPane de l'écran
      */
-    public void update(StackPane s){
+    public void update(Pane s){
         s.getChildren().clear();
         for(Case c: game.getMap().getCases()){
             ImageView caseView = new ImageView(c.getSprite().getImage());
@@ -125,6 +138,9 @@ public class GameWindow extends Parent {
                         ImageView caseContentView = new ImageView(c.getGameItem().getSprite().getImage());
                         this.imageViewPlayer = caseContentView; //TODO vérifier que c'est le joueur
                         this.configAndDisplay(caseContentView, s, 40, 50, c.getCoordonnee().getX()*50, c.getCoordonnee().getY()*50 - 15);
+                        
+                        //System.out.println(this.imageViewPlayer.xProperty());
+                        //System.out.println(this.imageViewPlayer.yProperty());
                     }
                 }
             }
@@ -138,6 +154,7 @@ public class GameWindow extends Parent {
             ImageView coeurVide = new ImageView(Sprite.getInstance("heart_empty.png").getImage());
             this.configAndDisplay(coeurVide, s, 70, 70, j*90 + 30, 15);
         }
+        
     }
     
     /**
@@ -150,7 +167,7 @@ public class GameWindow extends Parent {
      * @param x coordonnée sur l'axe x
      * @param y coordonnée sur l'axe y
      */
-    public void configAndDisplay(ImageView iv, StackPane s, int width, int height, int x, int y){
+    public void configAndDisplay(ImageView iv, Pane s, int width, int height, int x, int y){
         iv.setFitWidth(width);
         iv.setFitHeight(height);
         iv.setTranslateX(x);
@@ -158,11 +175,35 @@ public class GameWindow extends Parent {
         s.getChildren().add(iv);
     }
     
+     public void configAndDisplayPersonnage(ImageView iv, Pane s, int width, int height, int x, int y){
+        iv.setFitWidth(width);
+        iv.setFitHeight(height);
+        iv.setTranslateX(x);
+        iv.setTranslateY(y);
+        ImageView temp = new ImageView();
+        temp.setX(iv.getX()+x);
+        temp.setX(iv.getY()+y);
+        //iv.setX(iv.getX()+x);
+        //iv.setY(iv.getY()+y);
+        
+        this.imageViewPlayer = temp;
+        s.getChildren().add(iv);
+    }
+    
+    
     public ImageView getViewPlayer() {
         return this.imageViewPlayer;
     }
     
     public StackPane getPaneMap() {
         return this.paneMap;
+    }
+    
+    public void setScroll(Scroll s){
+        this.scroll = s;
+    }
+    
+     public void setScrollPane(javafx.scene.control.ScrollPane s){
+        this.scrollPane = s;
     }
 }
