@@ -5,6 +5,8 @@
  */
 package projet.tutoré.IHM;
 
+import static com.sun.org.apache.regexp.internal.RETest.test;
+import java.awt.Component;
 import java.awt.ScrollPane;
 import java.nio.file.Paths;
 import javafx.event.EventHandler;
@@ -17,10 +19,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import static jdk.nashorn.internal.objects.NativeRegExp.test;
 import projet.tutoré.Game;
 import projet.tutoré.controller.Controller;
 import projet.tutoré.controller.ControllerMovement;
@@ -37,6 +41,8 @@ public class GameWindow extends Parent {
     private Game game;
     private Group root;
     private MediaPlayer musique;
+    private ImageView imageViewPlayer;
+    private StackPane paneMap;
     //private Rectangle r = new Rectangle();
     
     /**
@@ -62,6 +68,8 @@ public class GameWindow extends Parent {
         player.play();
         
         StackPane s = new StackPane();
+        this.paneMap = s;
+        
         this.getChildren().add(s);
         
         update(s);
@@ -116,6 +124,7 @@ public class GameWindow extends Parent {
                     }
                     if(c.getGameItem() != null){
                         ImageView caseContentView = new ImageView(c.getGameItem().getSprite().getImage());
+                        this.imageViewPlayer = caseContentView; //TODO vérifier que c'est le joueur
                         this.configAndDisplay(caseContentView, s, 40, 50, c.getCoordonnee().getX()*50, c.getCoordonnee().getY()*50 - 15);
                     }
                 }
@@ -144,5 +153,13 @@ public class GameWindow extends Parent {
         iv.setTranslateX(x);
         iv.setTranslateY(y);
         s.getChildren().add(iv);
+    }
+    
+    public ImageView getViewPlayer() {
+        return this.imageViewPlayer;
+    }
+    
+    public StackPane getPaneMap() {
+        return this.paneMap;
     }
 }

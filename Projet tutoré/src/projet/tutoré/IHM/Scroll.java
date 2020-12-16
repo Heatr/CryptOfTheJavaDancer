@@ -6,8 +6,11 @@
 package projet.tutoré.IHM;
 
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import projet.tutoré.Game;
@@ -26,30 +29,49 @@ public class Scroll extends Application{
     }
     @Override
     public void start(Stage stage) {
-    StackPane layout = new StackPane();
-    layout.getChildren().add(gw);
-    ScrollPane scroll = createScrollPane(layout);
+    //StackPane layout = new StackPane();
+    //layout.getChildren().add(gw);
+    ScrollPane scroll = createScrollPane();
     
     scroll.setContent(gw);
-    scroll.scaleXProperty().set(1.5);
-    scroll.scaleYProperty().set(1.5);
-    scroll.setHmax(scroll.getWidth());
-    scroll.setVmax(scroll.getHeight());
-    scroll.setHvalue(this.g.getPlayer().getCoordonnee().getX());
-    scroll.setVvalue(this.g.getPlayer().getCoordonnee().getX());
+    gw.getPaneMap().setScaleX(1.5);
+    gw.getPaneMap().setScaleY(1.5);
+    //scroll.setHmax(scroll.getWidth());
+    //scroll.setVmax(scroll.getHeight());
+    //scroll.setHvalue(this.g.getPlayer().getCoordonnee().getX());
+    //scroll.setVvalue(this.g.getPlayer().getCoordonnee().getY());
+    scroll.hvalueProperty().bind(this.gw.getViewPlayer().xProperty().divide(this.gw.getPaneMap().widthProperty()).multiply(scroll.hmaxProperty()));
+    scroll.vvalueProperty().bind(this.gw.getViewPlayer().yProperty().divide(this.gw.getPaneMap().heightProperty()).multiply(scroll.vmaxProperty()));
     
-    Scene scene = new Scene(scroll);
+    scroll.hvalueProperty().addListener(new ChangeListener<Number>() {
+        @Override
+        public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+            System.out.println(scroll.getHvalue()+"/"+scroll.getHmax());
+        }
+    });
+    
+    scroll.setPannable(true);
+    
+    Pane panelPrincipal = new Pane();
+    Scene scene = new Scene(panelPrincipal,1000,1000);
+    //panelPrincipal.prefWidthProperty().bind(scene.widthProperty());
+    //panelPrincipal.prefHeightProperty().bind(scene.heightProperty());
+    panelPrincipal.setPrefHeight(800);
+    panelPrincipal.setPrefWidth(800);
+    panelPrincipal.getChildren().add(scroll);
+    scroll.prefWidthProperty().bind(panelPrincipal.widthProperty());
+    scroll.prefHeightProperty().bind(panelPrincipal.heightProperty());
+    
     stage.setScene(scene);
     stage.show();
     
     }
 
-    private ScrollPane createScrollPane(StackPane layout) {
+    private ScrollPane createScrollPane() {
     ScrollPane scroll = new ScrollPane();
-    scroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-    scroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-    scroll.setPrefSize(1920, 1020);
-    scroll.setContent(layout);
+    scroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+    scroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+    //scroll.setContent(layout);
     return scroll;
     }
      
