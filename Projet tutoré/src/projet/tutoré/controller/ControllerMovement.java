@@ -12,6 +12,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import projet.tutoré.Game;
 import projet.tutoré.IHM.VictoryWindow;
+import projet.tutoré.IHM.audio.SfxPlayer;
 import projet.tutoré.gameitems.player.Player;
 import projet.tutoré.map.cases.Coordonnee;
 import projet.tutoré.map.cases.TypeCase;
@@ -46,6 +47,7 @@ public class ControllerMovement extends Controller {
             }
             else{
                 game.getMap().changeCase(game.getPlayer().getCoordonnee().getCoordonneeDroite());
+                SfxPlayer.getInstance().Play("SFX/vo_cad_dig_0" + game.getPlayer().dig() + ".mp3");
             }
         }
         else if(key.equals(KeyCode.Z)){  
@@ -54,6 +56,7 @@ public class ControllerMovement extends Controller {
             }
             else{
                 game.getMap().changeCase(game.getPlayer().getCoordonnee().getCoordonneeHaut());
+                SfxPlayer.getInstance().Play("SFX/vo_cad_dig_0" + game.getPlayer().dig() + ".mp3");
             }
         }
         else if(key.equals(KeyCode.Q)){
@@ -62,6 +65,7 @@ public class ControllerMovement extends Controller {
             }
             else{
                 game.getMap().changeCase(game.getPlayer().getCoordonnee().getCoordonneeGauche());
+                SfxPlayer.getInstance().Play("SFX/vo_cad_dig_0" + game.getPlayer().dig() + ".mp3");
             }
         }
         else if(key.equals(KeyCode.S)){
@@ -70,6 +74,7 @@ public class ControllerMovement extends Controller {
             }
             else{
                 game.getMap().changeCase(game.getPlayer().getCoordonnee().getCoordonneeBas());
+                SfxPlayer.getInstance().Play("SFX/vo_cad_dig_0" + game.getPlayer().dig() + ".mp3");
             }
         }
     }

@@ -13,6 +13,7 @@ import javafx.scene.layout.Pane;
 import projet.tutoré.Game;
 import projet.tutoré.IHM.fenetrecarte.panels.PanelHud;
 import projet.tutoré.IHM.fenetrecarte.panels.PanelScroll;
+import projet.tutoré.IHM.audio.MusicPlayer;
 
 /**
  *
@@ -31,6 +32,8 @@ public class SceneGame extends Scene {
         //this.panelPrincipal = root;
         //Creation du jeu
         this.game = new Game(this.widthMap, this.heightMap);
+        
+        MusicPlayer.getInstance().Play("Musiques/Disco_Descent_1-1.mp3");
         
         //Creation de la ScrollPane + La scroll prend la taille de la scène
         this.panelScroll = new PanelScroll(this.game, this.widthMap, this.heightMap);      

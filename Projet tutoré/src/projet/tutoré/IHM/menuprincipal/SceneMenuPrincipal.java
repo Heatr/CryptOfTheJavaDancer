@@ -14,6 +14,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.GridPane;
 import projet.tutoré.IHM.fenetrecarte.SceneGame;
 import projet.tutoré.IHM.fenetrevictoire.SceneMenuVictoire;
+import projet.tutoré.IHM.audio.MusicPlayer;
 import projet.tutoré.ProjetTutoré;
 import projet.tutoré.images.Sprite;
 
@@ -29,6 +30,7 @@ public class SceneMenuPrincipal extends Scene {
         super(root,1813,1020);
         this.panelPrincipal = root;
         this.gestionAffichage();
+        MusicPlayer.getInstance().Play("Musiques/Title_Screen_Theme.mp3");
     }
     
     //Gestion de l'affichage des différents éléments graphiques de la scène

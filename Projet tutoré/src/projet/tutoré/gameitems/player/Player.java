@@ -25,6 +25,7 @@ public class Player extends Entity{
     private static Player instance = null;
     private int Pv = 2;
     private static final int vieMax = 3;
+    private int countDig = 0;
 
     /**
      * Constructeur de l'instance du Joueur
@@ -83,6 +84,14 @@ public class Player extends Entity{
     
     public boolean hasPelle(){
         return true;
+    }
+    
+    public int dig(){
+        if(countDig == 6){
+            countDig = 0;
+        }
+        countDig++;
+        return countDig;
     }
     
     public static void reinitialiseJoueur(){
