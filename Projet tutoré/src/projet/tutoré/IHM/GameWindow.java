@@ -76,6 +76,10 @@ public class GameWindow extends Parent {
         this.getChildren().add(s2);
         
         update(s);
+        System.out.println("TAILLE W : "+s.getPrefWidth());
+        System.out.println("TAILLE H : "+s.getPrefHeight());
+        System.out.println("TX-s  : "+s.getTranslateX());
+        System.out.println("TY-s  : "+s.getTranslateY());
         
         //Kévin: Le Controller s'occupe d'avertir le modèle que le joueur se déplace
         ControllerMovement movement = new ControllerMovement(this.game);
@@ -84,9 +88,12 @@ public class GameWindow extends Parent {
             public void handle(KeyEvent ke){
                 movement.inform(ke.getCode());
                 update(s2);
-                //scrollPane.hvalueProperty().bind(getViewPlayer().xProperty().divide(getPaneMap().widthProperty()).multiply(scrollPane.hmaxProperty()));
-                //scrollPane.vvalueProperty().bind(getViewPlayer().yProperty().divide(getPaneMap().heightProperty()).multiply(scrollPane.vmaxProperty()));
-                //scrollPane.
+                System.out.println("Coucou");
+                System.out.println(getViewPlayer().getTranslateX());
+                System.out.println(getViewPlayer().getTranslateY());
+                System.out.println("Tx : "+getViewPlayer().getTranslateX());
+                System.out.println("Width : "+s.getPrefWidth());
+                scrollPane.setHvalue(getViewPlayer().getTranslateX()/(getPaneMap().getPrefWidth())*scrollPane.getHmax());
                 //System.out.println(scrollPane.hvalueProperty());
                 //System.out.println(scrollPane.vvalueProperty());
                 //(game.getPlayer().getCoordonnee().getX())/(getPaneMap().widthProperty())*(scrollPane.hmaxProperty()))
@@ -138,7 +145,6 @@ public class GameWindow extends Parent {
                         ImageView caseContentView = new ImageView(c.getGameItem().getSprite().getImage());
                         this.imageViewPlayer = caseContentView; //TODO vérifier que c'est le joueur
                         this.configAndDisplay(caseContentView, s, 40, 50, c.getCoordonnee().getX()*50, c.getCoordonnee().getY()*50 - 15);
-                        
                         //System.out.println(this.imageViewPlayer.xProperty());
                         //System.out.println(this.imageViewPlayer.yProperty());
                     }
@@ -173,6 +179,8 @@ public class GameWindow extends Parent {
         iv.setTranslateX(x);
         iv.setTranslateY(y);
         s.getChildren().add(iv);
+        s.setPrefWidth(Math.max(s.getPrefWidth(), x+width));
+        s.setPrefHeight(Math.max(s.getPrefHeight(), y+height));
     }
     
      public void configAndDisplayPersonnage(ImageView iv, Pane s, int width, int height, int x, int y){
@@ -181,8 +189,8 @@ public class GameWindow extends Parent {
         iv.setTranslateX(x);
         iv.setTranslateY(y);
         ImageView temp = new ImageView();
-        temp.setX(iv.getX()+x);
-        temp.setX(iv.getY()+y);
+        //temp.setX(iv.getX()+x);
+        //temp.setX(iv.getY()+y);
         //iv.setX(iv.getX()+x);
         //iv.setY(iv.getY()+y);
         

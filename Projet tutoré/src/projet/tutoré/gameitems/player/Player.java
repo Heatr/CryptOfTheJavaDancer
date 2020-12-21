@@ -81,4 +81,11 @@ public class Player extends Entity{
         return vieMax;
     }
     
+    public boolean hasPelle(){
+        return true;
+    }
+    
+    public static void reinitialiseJoueur(){
+        instance.setCoordonnee(new Coordonnee(11, 2));
+    }
 }

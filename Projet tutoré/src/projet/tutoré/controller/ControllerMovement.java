@@ -43,22 +43,34 @@ public class ControllerMovement extends Controller {
         if(key.equals(KeyCode.D)){    
             if(game.getMap().getCase(game.getPlayer().getCoordonnee().getCoordonneeDroite()).getTypeCase() != TypeCase.Wall){
                 game.MovePlayer(game.getPlayer().getCoordonnee().getCoordonneeDroite());
-            }                          
+            }
+            else{
+                game.getMap().changeCase(game.getPlayer().getCoordonnee().getCoordonneeDroite());
+            }
         }
         else if(key.equals(KeyCode.Z)){  
             if(game.getMap().getCase(game.getPlayer().getCoordonnee().getCoordonneeHaut()).getTypeCase() != TypeCase.Wall){
                 game.MovePlayer(game.getPlayer().getCoordonnee().getCoordonneeHaut());
-            }  
+            }
+            else{
+                game.getMap().changeCase(game.getPlayer().getCoordonnee().getCoordonneeHaut());
+            }
         }
         else if(key.equals(KeyCode.Q)){
             if(game.getMap().getCase(game.getPlayer().getCoordonnee().getCoordonneeGauche()).getTypeCase() != TypeCase.Wall){
                 game.MovePlayer(game.getPlayer().getCoordonnee().getCoordonneeGauche());
-            }  
+            }
+            else{
+                game.getMap().changeCase(game.getPlayer().getCoordonnee().getCoordonneeGauche());
+            }
         }
         else if(key.equals(KeyCode.S)){
             if(game.getMap().getCase(game.getPlayer().getCoordonnee().getCoordonneeBas()).getTypeCase() != TypeCase.Wall){
                 game.MovePlayer(game.getPlayer().getCoordonnee().getCoordonneeBas());
-            }  
+            }
+            else{
+                game.getMap().changeCase(game.getPlayer().getCoordonnee().getCoordonneeBas());
+            }
         }
     }
 }

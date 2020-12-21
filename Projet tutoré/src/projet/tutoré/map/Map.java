@@ -104,6 +104,10 @@ public class Map extends Parent{
     public void init(){
         
     }
+    
+    public void changeCase(Coordonnee c){
+        this.cases.put(c, new CaseClassic(c));
+    }
       
   
         

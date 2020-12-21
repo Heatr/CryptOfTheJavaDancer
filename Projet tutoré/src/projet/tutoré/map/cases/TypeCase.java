@@ -12,5 +12,6 @@ package projet.tutoré.map.cases;
 public enum TypeCase {
     Classic,
     Wall,
-    Stair
+    Stair,
+    Up
 }

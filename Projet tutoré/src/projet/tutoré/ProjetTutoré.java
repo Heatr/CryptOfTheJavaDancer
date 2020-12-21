@@ -12,8 +12,10 @@ import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import projet.tutoré.IHM.menuprincipal.SceneMenuPrincipal;
 
 
 /**
@@ -22,19 +24,23 @@ import javafx.stage.Stage;
  */
 public class ProjetTutoré extends Application {
     
+    private static Stage primaryStage;
+    
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage _primaryStage) {
+        primaryStage = _primaryStage;
         primaryStage.setTitle("Crypt of the NecroDancer");
         
-        Group root = new Group();
-        Scene scene = new Scene(root, 1920, 1020);
-           
-        MenuPrincipal mainmenu = MenuPrincipal.getInstance();
-        root.getChildren().add(mainmenu);
+        Scene scene = new SceneMenuPrincipal(new Pane());
         
         primaryStage.setScene(scene);
         primaryStage.show();
         
+    }
+    
+    //Change la scène 
+    public static void setScene(Scene scene) {
+        primaryStage.setScene(scene);
     }
 
     /**

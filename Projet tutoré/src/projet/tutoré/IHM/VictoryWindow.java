@@ -20,6 +20,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import projet.tutoré.Game;
+import projet.tutoré.IHM.MenuPrincipal;
 import projet.tutoré.ProjetTutoré;
 
 /**
