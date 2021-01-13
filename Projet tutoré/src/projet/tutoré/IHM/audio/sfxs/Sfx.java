@@ -19,7 +19,7 @@ public class Sfx {
     private static HashMap<String, Sfx> instances = new HashMap<String, Sfx>();
     
     private Sfx(String path){
-        this.media = new Media(Paths.get(path).toUri().toString());
+        this.media = new Media(getClass().getResource(path).toExternalForm());
     }
     
     public static Sfx getInstance(String key){

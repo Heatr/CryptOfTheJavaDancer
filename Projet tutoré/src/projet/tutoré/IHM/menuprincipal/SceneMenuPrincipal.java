@@ -30,7 +30,7 @@ public class SceneMenuPrincipal extends Scene {
         super(root,1813,1020);
         this.panelPrincipal = root;
         this.gestionAffichage();
-        MusicPlayer.getInstance().Play("Musiques/Title_Screen_Theme.mp3");
+        MusicPlayer.getInstance().Play("Title_Screen_Theme.mp3");
     }
     
     //Gestion de l'affichage des différents éléments graphiques de la scène

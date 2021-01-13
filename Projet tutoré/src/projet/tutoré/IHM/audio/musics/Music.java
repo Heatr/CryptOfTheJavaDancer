@@ -19,7 +19,7 @@ public class Music {
     private static HashMap<String, Music> instances = new HashMap<String, Music>();
     
     private Music(String path){
-        this.media = new Media(Paths.get(path).toUri().toString());
+        this.media = new Media(getClass().getResource(path).toExternalForm());
     }
     
     public static Music getInstance(String key){

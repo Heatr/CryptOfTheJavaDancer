@@ -3,7 +3,27 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/kevin/OneDrive/Bureau/GitHub/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/ProjetTutoré.java</file>
+            <file>file:/D:/PROGRAMMATION/Java/ProjetTutGit/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/IHM/fenetrevictoire/BoutonArreter.java</file>
+            <file>file:/D:/PROGRAMMATION/Java/ProjetTutGit/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/map/cases/Case.java</file>
+            <file>file:/D:/PROGRAMMATION/Java/ProjetTutGit/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/IHM/audio/sfxs/Sfx.java</file>
+            <file>file:/D:/PROGRAMMATION/Java/ProjetTutGit/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/IHM/fenetrecarte/panels/PanelHud.java</file>
+            <file>file:/D:/PROGRAMMATION/Java/ProjetTutGit/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/IHM/audio/SfxPlayer.java</file>
+            <file>file:/D:/PROGRAMMATION/Java/ProjetTutGit/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/IHM/menuprincipal/BoutonNouvellePartie.java</file>
+            <file>file:/D:/PROGRAMMATION/Java/ProjetTutGit/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/controller/ControllerMovement.java</file>
+            <file>file:/D:/PROGRAMMATION/Java/ProjetTutGit/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/IHM/audio/musics/Music.java</file>
+            <file>file:/D:/PROGRAMMATION/Java/ProjetTutGit/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/IHM/menuprincipal/BoutonQuitter.java</file>
+            <file>file:/D:/PROGRAMMATION/Java/ProjetTutGit/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/IHM/audio/MusicPlayer.java</file>
+            <file>file:/D:/PROGRAMMATION/Java/ProjetTutGit/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/images/Sprite.java</file>
+            <file>file:/D:/PROGRAMMATION/Java/ProjetTutGit/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/IHM/menuprincipal/SceneMenuPrincipal.java</file>
+            <file>file:/D:/PROGRAMMATION/Java/ProjetTutGit/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/IHM/fenetrecarte/personnage/VuePersonnage.java</file>
+            <file>file:/D:/PROGRAMMATION/Java/ProjetTutGit/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/IHM/fenetrevictoire/BoutonRecommencer.java</file>
+            <file>file:/D:/PROGRAMMATION/Java/ProjetTutGit/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/IHM/MenuPrincipal.java</file>
+            <file>file:/D:/PROGRAMMATION/Java/ProjetTutGit/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/IHM/fenetrevictoire/SceneMenuVictoire.java</file>
+            <file>file:/D:/PROGRAMMATION/Java/ProjetTutGit/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/IHM/fenetrecarte/panels/PanelScroll.java</file>
+            <file>file:/D:/PROGRAMMATION/Java/ProjetTutGit/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/ProjetTutoré.java</file>
+            <file>file:/D:/PROGRAMMATION/Java/ProjetTutGit/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/IHM/fenetrecarte/SceneGame.java</file>
+            <file>file:/D:/PROGRAMMATION/Java/ProjetTutGit/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/IHM/GameWindow.java</file>
+            <file>file:/D:/PROGRAMMATION/Java/ProjetTutGit/CryptOfTheJavaDancer/Projet%20tutoré/src/projet/tutoré/IHM/fenetrecarte/panels/PanelCarte.java</file>
         </group>
     </open-files>
 </project-private>

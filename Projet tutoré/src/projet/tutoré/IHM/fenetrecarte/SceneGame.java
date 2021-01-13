@@ -33,7 +33,7 @@ public class SceneGame extends Scene {
         //Creation du jeu
         this.game = new Game(this.widthMap, this.heightMap);
         
-        MusicPlayer.getInstance().Play("Musiques/Disco_Descent_1-1.mp3");
+        MusicPlayer.getInstance().Play("Disco_Descent_1-1.mp3");
         
         //Creation de la ScrollPane + La scroll prend la taille de la scène
         this.panelScroll = new PanelScroll(this.game, this.widthMap, this.heightMap);      

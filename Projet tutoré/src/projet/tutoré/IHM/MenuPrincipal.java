@@ -39,7 +39,7 @@ public class MenuPrincipal extends Parent{
     public MenuPrincipal() {
        
         //Kévin: Ajout de la musique (tourne en boucle)
-        Media media = new Media(Paths.get("Musiques/Title_Screen_Theme.mp3").toUri().toString());
+        Media media = new Media("Title_Screen_Theme.mp3");
         MediaPlayer player = new MediaPlayer(media); 
         player.setVolume(0.03);
         this.musique = player;
